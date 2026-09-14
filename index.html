@@ -7,15 +7,16 @@
 <meta name="description" content="AI-генерації, відео, живопис та 3D-візуалізація інтер'єрів. Портфоліо Наталії Соб.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Manrope:wght@400;500;600;700&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-overlay: rgba(20, 20, 18, 0.72);
-    --bg-soft: rgba(30, 30, 28, 0.85);
-    --card: rgba(40, 39, 36, 0.6);
+    /* Легке затемнення фону (25%), щоб картинка bg.jpg була світлою та чіткою */
+    --bg-overlay: rgba(0, 0, 0, 0.25);
+    --bg-header: rgba(18, 18, 16, 0.65);
+    --card: rgba(30, 29, 27, 0.55);
     --ink: #f2f0eb;
-    --ink-dim: #b9b6ae;
-    --line: rgba(242, 240, 235, 0.12);
+    --ink-dim: #d0cdcf;
+    --line: rgba(242, 240, 235, 0.15);
     --wine: #7c3341;
     --wine-soft: #5c2732;
   }
@@ -33,7 +34,7 @@
     min-height: 100vh;
   }
 
-  /* Фіксований фон */
+  /* Світлий та чіткий фон */
   .bg-layer {
     position: fixed;
     top: 0;
@@ -59,60 +60,27 @@
   /* NAV */
   header {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(18, 18, 16, 0.82);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--bg-header);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
   nav.wrap {
     display: flex; align-items: center; justify-content: space-between;
-    height: 72px;
+    height: 76px;
   }
   
-  /* Стилізований Логотип NATAIRA */
+  /* Логотип зі скану/картинки */
   .brand {
     display: flex;
     align-items: center;
-    gap: 12px;
     text-decoration: none;
   }
-  .brand-symbol {
-    position: relative;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .brand-symbol::before {
-    content: '';
-    position: absolute;
-    width: 1px;
-    height: 100%;
-    background: currentColor;
-    opacity: 0.6;
-  }
-  .brand-symbol::after {
-    content: '';
-    width: 22px;
-    height: 22px;
-    border: 1.5px solid currentColor;
-    border-radius: 50%;
-    box-sizing: border-box;
-  }
-  .brand-symbol-dot {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: currentColor;
-    border-radius: 50%;
-  }
-  .brand span {
-    font-family: 'Cinzel', 'Newsreader', serif;
-    font-size: 21px;
-    letter-spacing: 0.35em;
-    font-weight: 500;
-    text-transform: uppercase;
+  .brand .logo-img {
+    height: 38px; /* Висота логотипу в шапці */
+    width: auto;
+    display: block;
+    object-fit: contain;
   }
 
   .navlinks { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 15px; }
@@ -122,7 +90,7 @@
 
   /* HERO */
   .hero {
-    padding: 140px 0 100px;
+    padding: 130px 0 90px;
     text-align: center;
   }
   .hero h1 {
@@ -130,37 +98,39 @@
     line-height: 1.12;
     max-width: 820px;
     margin: 0 auto 20px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
   }
   .hero p {
-    color: var(--ink-dim);
-    font-size: 18px;
-    max-width: 520px;
+    color: var(--ink);
+    font-size: 19px;
+    max-width: 540px;
     margin: 0 auto;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
   }
   .hero .roles {
     margin-top: 36px;
     display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
-    font-size: 13px; color: var(--ink-dim);
+    font-size: 13px; color: var(--ink);
   }
   .hero .roles span {
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 999px;
-    padding: 6px 16px;
-    background: rgba(20, 20, 18, 0.4);
-    backdrop-filter: blur(4px);
+    padding: 6px 18px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
   }
 
-  /* SECTION HEADS */
-  .section { padding: 96px 0; border-top: 1px solid var(--line); }
+  /* SECTIONS */
+  .section { padding: 88px 0; border-top: 1px solid var(--line); }
   .section-head {
     display: flex; justify-content: space-between; align-items: flex-end;
-    gap: 24px; margin-bottom: 48px;
+    gap: 24px; margin-bottom: 44px;
     flex-wrap: wrap;
   }
-  .section-head h2 { font-size: clamp(26px, 3.4vw, 38px); }
+  .section-head h2 { font-size: clamp(26px, 3.4vw, 38px); text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
   .section-head p { color: var(--ink-dim); max-width: 360px; font-size: 15px; margin: 0; }
 
-  /* GALLERY */
+  /* GALLERY GRID */
   .grid {
     display: grid;
     gap: 20px;
@@ -184,7 +154,7 @@
   .tile .cap {
     position: absolute; left: 0; right: 0; bottom: 0;
     padding: 16px;
-    background: linear-gradient(to top, rgba(0,0,0,.8), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,.85), transparent);
     font-size: 13px; color: var(--ink);
     opacity: 0; transition: opacity .25s;
   }
@@ -193,6 +163,7 @@
     display: flex; align-items: center; justify-content: center;
     color: var(--ink-dim); font-size: 13px; text-align: center; padding: 20px;
     border: 1px dashed var(--line);
+    background: rgba(0, 0, 0, 0.3);
   }
 
   /* AI section */
@@ -225,7 +196,7 @@
     display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;
   }
   .about .skills span {
-    font-size: 13px; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; color: var(--ink-dim); background: rgba(20, 20, 18, 0.4);
+    font-size: 13px; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; color: var(--ink); background: rgba(0, 0, 0, 0.3);
   }
 
   /* CONTACT */
@@ -247,12 +218,13 @@
   footer {
     padding: 36px 0; border-top: 1px solid var(--line);
     text-align: center; color: var(--ink-dim); font-size: 13px;
+    background: rgba(18, 18, 16, 0.5);
   }
 
   @media (max-width: 800px) {
     .navlinks {
-      position: fixed; top: 72px; left: 0; right: 0;
-      background: rgba(25, 25, 22, 0.95);
+      position: fixed; top: 76px; left: 0; right: 0;
+      background: rgba(20, 20, 18, 0.95);
       backdrop-filter: blur(16px);
       flex-direction: column;
       padding: 20px 24px; gap: 18px;
@@ -277,10 +249,8 @@
 <header>
   <nav class="wrap">
     <a href="#top" class="brand">
-      <div class="brand-symbol">
-        <div class="brand-symbol-dot"></div>
-      </div>
-      <span>NATAIRA</span>
+      <!-- Використовуємо точне зображення логотипу -->
+      <img src="logo.png" alt="NATAIRA" class="logo-img">
     </a>
     <button class="navtoggle" id="navToggle" aria-label="Меню">☰</button>
     <ul class="navlinks" id="navLinks">
