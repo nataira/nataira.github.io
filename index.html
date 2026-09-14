@@ -6,7 +6,7 @@
     <title>NATAIRA | Мистецтво · Уява · Технології</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -50,11 +50,11 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 15px 50px;
+            padding: 10px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(35, 32, 27, 0.92);
+            background: rgba(35, 32, 27, 0.95);
             backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
@@ -66,10 +66,11 @@
             text-decoration: none;
         }
 
+        /* Збільшений логотип у лівому верхньому куті */
         .header-logo img {
-            height: 45px;
+            height: 75px;
             width: auto;
-            filter: drop-shadow(0 0 6px rgba(212, 139, 94, 0.4));
+            filter: drop-shadow(0 0 10px rgba(212, 139, 94, 0.5));
             transition: transform 0.3s ease;
         }
 
@@ -79,16 +80,18 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
             color: var(--text-main);
             text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 1.5px;
+            font-size: 0.8rem;
+            letter-spacing: 1.2px;
             transition: color 0.3s;
+            text-transform: uppercase;
         }
 
         .nav-links a:hover {
@@ -96,7 +99,7 @@
         }
 
         .content-block {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             text-align: center;
         }
@@ -122,27 +125,9 @@
             box-shadow: 0 0 15px rgba(212, 139, 94, 0.4);
         }
 
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
-            justify-content: center;
-        }
-
-        .tag {
-            font-size: 0.75rem;
-            padding: 5px 16px;
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        /* 3 ГОЛОВНІ СЕКЦІЇ */
+        /* 3 СЕКЦІЇ СТАЙЛІНГ */
         section {
-            padding: 120px 8% 80px;
+            padding: 120px 8% 70px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -151,7 +136,7 @@
             position: relative;
         }
 
-        /* БЛОК 1: HERO & CONCEPT */
+        /* СЕКЦІЯ 1: ГОЛОВНА ТА ПРО МЕНЕ / НАВИЧКИ */
         #home {
             background-image: url('1.jpg');
             background-size: cover;
@@ -164,7 +149,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(30, 26, 21, 0.65);
+            background: rgba(30, 26, 21, 0.72);
             z-index: 1;
         }
 
@@ -174,37 +159,60 @@
         }
 
         .hero-brand-logo {
-            max-width: 320px;
-            width: 80%;
+            max-width: 280px;
+            width: 75%;
             height: auto;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 20px auto;
             display: block;
             filter: drop-shadow(0 0 20px rgba(212, 139, 94, 0.35));
         }
 
         h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
+            font-size: 2.6rem;
+            margin-bottom: 15px;
             color: var(--accent);
             line-height: 1.2;
         }
 
-        .about-text {
+        .about-intro {
             font-size: 1.05rem;
             font-weight: 300;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             color: var(--text-main);
+            max-width: 800px;
         }
 
-        .disciplines-badge {
-            font-family: var(--font-heading);
-            font-size: 1.6rem;
+        /* Блок навичок */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .skill-card {
+            background: rgba(45, 41, 35, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .skill-card h3 {
             color: var(--accent);
-            letter-spacing: 4px;
-            margin: 25px 0 15px;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
         }
 
-        /* БЛОК 2: PORTFOLIO & PROCESS */
+        .skill-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* СЕКЦІЯ 2: ГАЛЕРЕЯ ТА ПРОЦЕС */
         #portfolio {
             background-color: var(--bg-dark);
             width: 100%;
@@ -225,7 +233,7 @@
 
         .filters {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 30px;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 12px;
@@ -239,7 +247,8 @@
             letter-spacing: 1px;
             color: var(--text-muted);
             transition: color 0.3s;
-            padding: 4px 8px;
+            padding: 4px 10px;
+            font-size: 0.85rem;
         }
 
         .filter-btn:hover, .filter-btn.active {
@@ -249,10 +258,10 @@
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
             gap: 20px;
             width: 100%;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .gallery-item {
@@ -292,39 +301,23 @@
             opacity: 1;
         }
 
-        /* Компактний процес створення */
+        /* Процес */
         .process-compact {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
             width: 100%;
             margin-top: 30px;
             padding-top: 30px;
             border-top: 1px solid var(--border-color);
         }
 
-        .step {
-            text-align: center;
-        }
+        .step { text-align: center; }
+        .step-num { color: var(--accent); font-family: var(--font-heading); font-size: 1.2rem; }
+        .step-title { font-family: var(--font-heading); font-size: 0.9rem; margin: 4px 0; }
+        .step-desc { font-size: 0.78rem; color: var(--text-muted); }
 
-        .step-num {
-            color: var(--accent);
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-        }
-
-        .step-title {
-            font-family: var(--font-heading);
-            font-size: 0.95rem;
-            margin: 5px 0;
-        }
-
-        .step-desc {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* БЛОК 3: CONTACT & FOOTER */
+        /* СЕКЦІЯ 3: КОНТАКТИ */
         #contact {
             background-color: var(--bg-light);
             width: 100%;
@@ -332,19 +325,19 @@
 
         footer {
             width: 100%;
-            padding: 40px 10% 20px;
+            padding: 40px 10% 25px;
             background-color: var(--bg-dark);
             border-top: 1px solid var(--border-color);
         }
 
         .footer-logo-img {
-            height: 65px;
+            height: 70px;
             width: auto;
             margin-bottom: 15px;
             filter: drop-shadow(0 0 10px rgba(212, 139, 94, 0.4));
         }
 
-        /* МОДАЛЬНЕ ВІКНО ДЛЯ ФОТО (не на весь екран, а збільшена картка) */
+        /* МОДАЛЬНЕ ВІКНО */
         .modal {
             display: none;
             position: fixed;
@@ -355,7 +348,6 @@
             backdrop-filter: blur(8px);
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -391,16 +383,14 @@
             margin-top: 12px;
             color: var(--text-main);
             font-family: var(--font-heading);
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 1px;
         }
 
         .modal-close {
             position: absolute;
-            top: -15px;
-            right: -15px;
-            width: 36px;
-            height: 36px;
+            top: -15px; right: -15px;
+            width: 36px; height: 36px;
             background: var(--accent);
             color: var(--bg-dark);
             border-radius: 50%;
@@ -414,18 +404,17 @@
             transition: transform 0.2s;
         }
 
-        .modal-close:hover {
-            transform: scale(1.1);
-        }
+        .modal-close:hover { transform: scale(1.1); }
 
-        @media (max-width: 768px) {
-            header { padding: 15px 20px; flex-direction: column; gap: 10px; }
-            .nav-links { gap: 15px; }
+        @media (max-width: 850px) {
+            header { padding: 10px 20px; flex-direction: column; gap: 10px; }
+            .header-logo img { height: 55px; }
+            .nav-links { gap: 10px; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { font-size: 0.72rem; }
             h1 { font-size: 2.1rem; }
             h2 { font-size: 1.7rem; }
-            section { padding: 90px 5% 50px; }
-            .gallery { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-            .modal-container { width: 92%; padding: 10px; }
+            section { padding: 110px 5% 50px; }
+            .gallery { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
         }
     </style>
 </head>
@@ -438,43 +427,58 @@
         </a>
         <nav>
             <ul class="nav-links">
-                <li><a href="#home">Головна</a></li>
-                <li><a href="#portfolio">Портфоліо</a></li>
+                <li><a href="#home">Головна / Про мене</a></li>
+                <li><a href="#portfolio" data-nav-filter="ai">AI GENERATIONS</a></li>
+                <li><a href="#portfolio" data-nav-filter="art">ART & PAINTING</a></li>
+                <li><a href="#portfolio" data-nav-filter="visuals">VISUALS</a></li>
+                <li><a href="#portfolio" data-nav-filter="3d">3D MODELING</a></li>
                 <li><a href="#contact">Контакти</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- СЕКЦІЯ 1: ГОЛОВНА / ПРО ПРОЄКТ & МОЖЛИВОСТІ -->
+    <!-- СЕКЦІЯ 1: ГОЛОВНА + ПРО МЕНЕ ТА НАВИЧКИ -->
     <section id="home">
         <div class="content-block">
             <img src="logo.png" alt="NATAIRA Brand Logo" class="hero-brand-logo">
             <h1>Мистецтво. Уява. Технології.</h1>
-            <p class="about-text">
-                NATAIRA — це візуальний простір на перетині цифрового та матеріального світу. 
-                Я поєдную традиційне мистецтво, 3D-моделювання та генеративний штучний інтелект, перетворюючи фантазії та концепції на реалізовані візуальні рішення.
+            
+            <p class="about-intro">
+                Я працюю на перетині цифрового мистецтва, генеративних технологій та традиційної живописної форми. 
+                Моя мета — створювати глибокі візуальні концепції, у яких новітні інструменти штучного інтелекту поєднуються з живим відчуттям кольору, фактури та об'єму.
             </p>
 
-            <div class="disciplines-badge">AI × ART × 3D</div>
-
-            <div class="tags">
-                <span class="tag">PROMPT ENGINEERING</span>
-                <span class="tag">GENERATIVE ART</span>
-                <span class="tag">PAINTING & TEXTURE</span>
-                <span class="tag">3D VISUALIZATION</span>
+            <!-- Блок Навичок -->
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>AI Generation & Prompting</h3>
+                    <p>Професійна розробка складноструктурованих промптів для фото та відео-моделей. Створення комерційних візуалів, цифрових персонажів та генеративних сценаріїв.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Traditional & Fine Art</h3>
+                    <p>Робота з матеріальною формою: живопис, колір, фактурні мазки, об'ємні текстури та матеріали. Відчуття композиції, що переноситься у цифрові проєкти.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Visual Concepts & Branding</h3>
+                    <p>Формування цілісної візуальної мови для продуктів, брендингу, арт-дирекшн та рекламних кампаній. Від мудборду та ідеї до фінального рішення.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>3D Space & Modeling</h3>
+                    <p>Моделювання та 3D-візуалізація інтер'єрів, предметів і складних середовищ у 3ds Max та Corona Renderer. Налаштування реалістичного освітлення та матеріалів.</p>
+                </div>
             </div>
 
-            <a href="#portfolio" class="btn">Переглянути роботи &rarr;</a>
+            <a href="#portfolio" class="btn" data-nav-filter="all">Переглянути всі роботи &rarr;</a>
         </div>
     </section>
 
-    <!-- СЕКЦІЯ 2: ПОРТФОЛІО & ГАЛЕРЕЯ & ПРОЦЕС -->
+    <!-- СЕКЦІЯ 2: ГАЛЕРЕЯ ТА ПРОЦЕС СТВОРЕННЯ -->
     <section id="portfolio">
         <div class="content-block" style="max-width: 1100px;">
             <h2>Selected Work</h2>
-            <p class="sub-heading">Добірка авторських робіт, візуальних концептів та експериментів</p>
+            <p class="sub-heading">Добірка авторських робіт, експериментів та концептів</p>
             
-            <!-- Фільтри -->
+            <!-- Кнопки-фільтри -->
             <div class="filters">
                 <span class="filter-btn active" data-filter="all">ВСІ РОБОТИ</span>
                 <span class="filter-btn" data-filter="ai">AI GENERATIONS</span>
@@ -483,66 +487,66 @@
                 <span class="filter-btn" data-filter="3d">3D MODELING</span>
             </div>
             
-            <!-- Сітка зображень (Додано більше карток для кожної категорії) -->
+            <!-- Сітка робіт -->
             <div class="gallery">
                 <!-- AI Роботи -->
                 <div class="gallery-item" data-category="ai">
                     <img src="ai-1.jpg" alt="AI Concept Artwork #1">
-                    <div class="info">AI Concept #1</div>
+                    <div class="info">AI Prompting & Concept #1</div>
                 </div>
                 <div class="gallery-item" data-category="ai">
                     <img src="ai-2.jpg" alt="AI Character Design #2">
-                    <div class="info">AI Character #2</div>
+                    <div class="info">AI Character Design #2</div>
                 </div>
                 <div class="gallery-item" data-category="ai">
-                    <img src="ai-3.jpg" alt="AI Generative Landscape #3">
-                    <div class="info">Generative Landscape #3</div>
+                    <img src="ai-3.jpg" alt="AI Generative Visual #3">
+                    <div class="info">AI Commercial Visual #3</div>
                 </div>
 
                 <!-- ART Роботи -->
                 <div class="gallery-item" data-category="art">
                     <img src="art-1.jpg" alt="Traditional Painting #1">
-                    <div class="info">Живопис / Олія #1</div>
+                    <div class="info">Живопис / Фактурна Олія #1</div>
                 </div>
                 <div class="gallery-item" data-category="art">
                     <img src="art-2.jpg" alt="Texture & Form Study #2">
-                    <div class="info">Фактура та Форма #2</div>
+                    <div class="info">Текстура та Колір #2</div>
                 </div>
                 <div class="gallery-item" data-category="art">
                     <img src="art-3.jpg" alt="Mixed Media Art #3">
-                    <div class="info">Mixed Media #3</div>
+                    <div class="info">Mixed Media & Painting #3</div>
                 </div>
 
                 <!-- VISUALS Роботи -->
                 <div class="gallery-item" data-category="visuals">
                     <img src="visual-1.jpg" alt="Digital Visual Concept #1">
-                    <div class="info">Digital Visual #1</div>
+                    <div class="info">Digital Visual Concept #1</div>
                 </div>
                 <div class="gallery-item" data-category="visuals">
                     <img src="visual-2.jpg" alt="Commercial Art Direction #2">
-                    <div class="info">Art Direction #2</div>
+                    <div class="info">Commercial Art Direction #2</div>
                 </div>
                 <div class="gallery-item" data-category="visuals">
                     <img src="visual-3.jpg" alt="Moodboard Concept #3">
-                    <div class="info">Moodboard Concept #3</div>
+                    <div class="info">Visual Campaign Concept #3</div>
                 </div>
 
                 <!-- 3D Роботи -->
                 <div class="gallery-item" data-category="3d">
-                    <img src="3d-1.jpg" alt="3D Interior Render #1">
-                    <div class="info">3D Render / Space #1</div>
+                    <img src="3d-1.jpg" alt="3D Space Render #1">
+                    <div class="info">3D Space / Corona Render #1</div>
                 </div>
                 <div class="gallery-item" data-category="3d">
                     <img src="3d-2.jpg" alt="3D Product Visualization #2">
-                    <div class="info">3D Product Render #2</div>
+                    <div class="info">3D Object Visualization #2</div>
                 </div>
                 <div class="gallery-item" data-category="3d">
-                    <img src="3d-3.jpg" alt="3D Atmosphere Study #3">
-                    <div class="info">3D Atmosphere #3</div>
+                    <img src="3d-3.jpg" alt="3D Interior Atmosphere #3">
+                    <div class="info">3D Atmosphere & Lighting #3</div>
                 </div>
             </div>
 
-            <!-- Компактний процес створення -->
+            <!-- Процес -->
             <h2>From Idea to Result</h2>
             <div class="process-compact">
                 <div class="step">
@@ -553,43 +557,45 @@
                 <div class="step">
                     <div class="step-num">02</div>
                     <div class="step-title">EXPLORE</div>
-                    <div class="step-desc">Пошук референсів</div>
+                    <div class="step-desc">Пошук формату й референсів</div>
                 </div>
                 <div class="step">
                     <div class="step-num">03</div>
                     <div class="step-title">CREATE</div>
-                    <div class="step-desc">AI, ART & 3D синтез</div>
+                    <div class="step-desc">Синтез AI, ART та 3D</div>
                 </div>
                 <div class="step">
                     <div class="step-num">04</div>
                     <div class="step-title">REFINE</div>
-                    <div class="step-desc">Пост-обробка й деталі</div>
+                    <div class="step-desc">Деталізація та обробка</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- СЕКЦІЯ 3: КОНТАКТИ ТА ЗАКЛИК ДО ДІЇ -->
+    <!-- СЕКЦІЯ 3: КОНТАКТИ -->
     <section id="contact">
         <div class="content-block">
             <h2>Let's create something new</h2>
-            <p class="about-text" style="max-width: 600px; margin: 0 auto 20px;">
-                Маєте ідею, комерційний проєкт або прагнете створити унікальний візуальний образ? Напишіть мені для обговорення деталей.
+            <p class="about-intro" style="margin: 0 auto 25px;">
+                Є ідея комерційного проєкту, розробки візуальної концепції або створення унікальних AI/3D робіт? Буду рада співпраці.
             </p>
             <a href="mailto:contact@nataira.com" class="btn">Зв'язатися &rarr;</a>
         </div>
     </section>
 
-    <!-- ФУТЕР -->
+    <!-- ФУТЕР З ЗАХИСТОМ ПРАВ -->
     <footer>
         <img src="logo.png" alt="NATAIRA" class="footer-logo-img">
-        <div style="font-family: var(--font-heading); color: var(--accent); letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 8px;">
+        <div style="font-family: var(--font-heading); color: var(--accent); letter-spacing: 3px; font-size: 0.85rem; margin-bottom: 10px;">
             AI · ART · VISUALS · 3D
         </div>
-        <p style="font-size: 0.8rem; color: var(--text-muted);">© NATAIRA. Art. Imagination. Technology</p>
+        <p style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-text);">
+            © NATAIRA. Всі права захищені.
+        </p>
     </footer>
 
-    <!-- МОДАЛЬНЕ ВІКНО ПЕРЕГЛЯДУ (Збільшення у компактному вікні) -->
+    <!-- МОДАЛЬНЕ ВІКНО ПЕРЕГЛЯДУ -->
     <div id="imageModal" class="modal">
         <div class="modal-container">
             <span class="modal-close" id="modalClose">&times;</span>
@@ -600,29 +606,43 @@
 
     <!-- СКРИПТИ -->
     <script>
-        // 1. Фільтрація галереї
         const filterBtns = document.querySelectorAll('.filter-btn');
         const galleryItems = document.querySelectorAll('.gallery-item');
+
+        function applyFilter(filter) {
+            filterBtns.forEach(b => {
+                if (b.getAttribute('data-filter') === filter) {
+                    b.classList.add('active');
+                } else {
+                    b.classList.remove('active');
+                }
+            });
+
+            galleryItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const filter = btn.getAttribute('data-filter');
-                
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                galleryItems.forEach(item => {
-                    const category = item.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
+                applyFilter(filter);
             });
         });
 
-        // 2. Збільшення зображення у модальній картці
+        document.querySelectorAll('[data-nav-filter]').forEach(navLink => {
+            navLink.addEventListener('click', (e) => {
+                const filter = navLink.getAttribute('data-nav-filter');
+                applyFilter(filter);
+            });
+        });
+
+        // Модальне вікно
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
         const modalCaption = document.getElementById('modalCaption');
@@ -648,11 +668,9 @@
         }
 
         modalClose.addEventListener('click', closeModal);
-
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
-
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
         });
