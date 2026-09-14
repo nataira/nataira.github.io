@@ -3,323 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nataliia Sob — Портфоліо</title>
-<meta name="description" content="AI-генерації, відео, живопис та 3D-візуалізація інтер'єрів. Портфоліо Наталії Соб.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#1a1a18;
-    --bg-soft:#232320;
-    --card:#2b2a28;
-    --ink:#f2f0eb;
-    --ink-dim:#b9b6ae;
-    --line:#3c3b37;
-    --wine:#7c3341;
-    --wine-soft:#5c2732;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Manrope',sans-serif;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.serif{
-    font-family:'Newsreader',serif;
-    font-weight:500;
-    margin:0;
-  }
-  a{color:inherit;}
-  img{max-width:100%;display:block;}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
-
-  /* NAV */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(26,26,24,0.88);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  nav.wrap{
-    display:flex;align-items:center;justify-content:space-between;
-    height:72px;
-  }
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
-  .brand img{width:38px;height:38px;border-radius:50%;}
-  .brand span{font-family:'Newsreader',serif;font-size:20px;letter-spacing:0.02em;}
-  .navlinks{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:15px;}
-  .navlinks a{text-decoration:none;color:var(--ink-dim);transition:color .2s;}
-  .navlinks a:hover{color:var(--ink);}
-  .navtoggle{display:none;background:none;border:none;color:var(--ink);font-size:26px;cursor:pointer;}
-
-  /* HERO */
-  .hero{
-    padding:120px 0 100px;
-    text-align:center;
-  }
-  .hero .mark{
-    width:132px;height:132px;border-radius:50%;
-    margin:0 auto 40px;
-    box-shadow:0 0 0 1px var(--line);
-  }
-  .hero h1{
-    font-size:clamp(34px,5vw,58px);
-    line-height:1.12;
-    max-width:820px;
-    margin:0 auto 20px;
-  }
-  .hero p{
-    color:var(--ink-dim);
-    font-size:18px;
-    max-width:520px;
-    margin:0 auto;
-  }
-  .hero .roles{
-    margin-top:36px;
-    display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
-    font-size:13px;color:var(--ink-dim);
-  }
-  .hero .roles span{
-    border:1px solid var(--line);
-    border-radius:999px;
-    padding:6px 16px;
-  }
-
-  /* SECTION HEADS */
-  .section{padding:96px 0;border-top:1px solid var(--line);}
-  .section-head{
-    display:flex;justify-content:space-between;align-items:flex-end;
-    gap:24px;margin-bottom:48px;
-    flex-wrap:wrap;
-  }
-  .section-head h2{font-size:clamp(26px,3.4vw,38px);}
-  .section-head p{color:var(--ink-dim);max-width:360px;font-size:15px;margin:0;}
-
-  /* GALLERY: asymmetric grid */
-  .grid{
-    display:grid;
-    gap:20px;
-    grid-template-columns:repeat(6,1fr);
-  }
-  .tile{
-    position:relative;
-    overflow:hidden;
-    border-radius:2px;
-    background:var(--card);
-    aspect-ratio:4/5;
-  }
-  .tile img,.tile video{
-    width:100%;height:100%;object-fit:cover;
-    transition:transform .5s ease;
-  }
-  .tile:hover img,.tile:hover video{transform:scale(1.04);}
-  .tile .cap{
-    position:absolute;left:0;right:0;bottom:0;
-    padding:16px;
-    background:linear-gradient(to top,rgba(0,0,0,.75),transparent);
-    font-size:13px;color:var(--ink);
-    opacity:0;transition:opacity .25s;
-  }
-  .tile:hover .cap{opacity:1;}
-  .tile.placeholder{
-    display:flex;align-items:center;justify-content:center;
-    color:var(--ink-dim);font-size:13px;text-align:center;padding:20px;
-    border:1px dashed var(--line);
-  }
-
-  /* AI section: wide horizontal cards */
-  .ai .grid{grid-template-columns:repeat(6,1fr);}
-  .ai .tile{grid-column:span 3;aspect-ratio:16/10;}
-  .ai .tile.wide{grid-column:span 6;aspect-ratio:21/9;}
-
-  /* Painting section: dense small tiles */
-  .paint .grid{grid-template-columns:repeat(4,1fr);}
-  .paint .tile{grid-column:span 1;aspect-ratio:3/4;}
-
-  /* 3D section: two large frames */
-  .render .grid{grid-template-columns:repeat(2,1fr);}
-  .render .tile{aspect-ratio:16/10;}
-
-  /* ABOUT */
-  .about{
-    display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;
-  }
-  .about .photo{
-    aspect-ratio:4/5;background:var(--card);border-radius:2px;
-    display:flex;align-items:center;justify-content:center;
-    color:var(--ink-dim);font-size:13px;overflow:hidden;
-  }
-  .about .photo img{width:100%;height:100%;object-fit:cover;}
-  .about h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:18px;}
-  .about p{color:var(--ink-dim);margin:0 0 16px;font-size:16px;}
-  .about .skills{
-    display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;
-  }
-  .about .skills span{
-    font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--ink-dim);
-  }
-
-  /* CONTACT */
-  .contact{text-align:center;}
-  .contact h2{font-size:clamp(28px,4vw,44px);margin-bottom:18px;}
-  .contact p{color:var(--ink-dim);max-width:440px;margin:0 auto 32px;}
-  .contact .links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
-  .btn{
-    display:inline-block;text-decoration:none;
-    padding:14px 30px;border-radius:999px;
-    font-size:15px;font-weight:600;
-    border:1px solid var(--ink);
-    transition:background .2s,color .2s;
-  }
-  .btn.solid{background:var(--wine);border-color:var(--wine-soft);}
-  .btn.solid:hover{background:var(--wine-soft);}
-  .btn.ghost:hover{background:var(--ink);color:var(--bg);}
-
-  footer{
-    padding:36px 0;border-top:1px solid var(--line);
-    text-align:center;color:var(--ink-dim);font-size:13px;
-  }
-
-  @media (max-width:800px){
-    .navlinks{
-      position:fixed;top:72px;left:0;right:0;
-      background:var(--bg-soft);
-      flex-direction:column;
-      padding:20px 24px;gap:18px;
-      border-bottom:1px solid var(--line);
-      transform:translateY(-8px);
-      opacity:0;pointer-events:none;
-      transition:opacity .2s,transform .2s;
-    }
-    .navlinks.open{opacity:1;pointer-events:auto;transform:translateY(0);}
-    .navtoggle{display:block;}
-    .grid{grid-template-columns:repeat(2,1fr)!important;}
-    .ai .tile,.ai .tile.wide{grid-column:span 2!important;}
-    .about{grid-template-columns:1fr;}
-    .about .photo{max-width:320px;margin:0 auto;}
-  }
-</style>
+<title>NATAIRA — Візуальні світи від пензля до нейромережі</title>
+<meta name="description" content="NATAIRA — AI-генерації фото та відео, живопис власними руками та 3D-візуалізація інтер'єрів в одному портфоліо.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<header>
-  <nav class="wrap">
-    <a href="#top" class="brand">
-      <img src="assets/logo.png" alt="Емблема N·S">
-      <span>Nataliia&nbsp;Sob</span>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="13" stroke-width="1"/>
+        <circle cx="20" cy="20" r="7.5" stroke-width="1"/>
+        <path d="M20 6.5v3M20 30.5v3" stroke-width="1"/>
+        <path d="M14 20c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-text">NATAIRA</span>
     </a>
-    <button class="navtoggle" id="navToggle" aria-label="Меню">☰</button>
-    <ul class="navlinks" id="navLinks">
-      <li><a href="#ai">AI-генерації</a></li>
-      <li><a href="#paint">Малюнки</a></li>
-      <li><a href="#render">3D-візуалізація</a></li>
-      <li><a href="#about">Про мене</a></li>
-      <li><a href="#contact">Контакти</a></li>
-    </ul>
-  </nav>
+    <nav class="main-nav">
+      <a href="ai-generations.html">AI-генерації</a>
+      <a href="art.html">Малюнки</a>
+      <a href="3d-visualization.html">3D-візуалізація</a>
+      <a href="about.html">Про мене</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
 </header>
 
-<section class="hero" id="top">
+<section class="hero" style="background-image:linear-gradient(180deg, rgba(22,24,15,0.55), rgba(22,24,15,0.86) 60%), url('assets/img/hero-bg.png'); background-size: cover; background-position: center;">
   <div class="wrap">
-    <img class="mark" src="assets/logo.png" alt="Емблема N·S">
-    <h1>Візуальні світи — від пензля до нейромережі</h1>
-    <p>AI-генерації фото та відео, живопис власними руками та 3D-візуалізація інтер'єрів в одному портфоліо.</p>
-    <div class="roles">
+    <svg class="hero-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="13" stroke-width="1"/>
+      <circle cx="20" cy="20" r="7.5" stroke-width="1"/>
+      <path d="M20 3v4M20 33v4" stroke-width="1"/>
+      <path d="M14 20c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke-width="1" stroke-linecap="round"/>
+    </svg>
+    <h1>Візуальні світи — <br>від пензля до нейромережі</h1>
+    <p class="lead">AI-генерації фото та відео, живопис власними руками та 3D-візуалізація інтер'єрів в одному портфоліо.</p>
+    <div class="hero-roles">
       <span>AI Content Creator</span>
+      <span class="sep"></span>
       <span>Художниця</span>
+      <span class="sep"></span>
       <span>3D-візуалізатор</span>
     </div>
   </div>
 </section>
 
-<section class="section ai" id="ai">
+<section>
   <div class="wrap">
     <div class="section-head">
-      <h2>AI-генерації</h2>
-      <p>Фото та відео, створені у нейромережах — від концепту персонажа до готового кадру.</p>
+      <div>
+        <div class="eyebrow">Напрямки роботи</div>
+        <h2>Три мови одного бачення</h2>
+      </div>
+      <p class="note">Кожен напрямок — окрема техніка, але всі вони про одне: перетворення ідеї на образ.</p>
     </div>
-    <div class="grid">
-      <div class="tile placeholder">Додайте фото/відео<br>(наприклад, серія сомельє)</div>
-      <div class="tile placeholder">Додайте роботу</div>
-      <div class="tile wide placeholder">Додайте відео (широкий формат)</div>
-      <div class="tile placeholder">Додайте роботу</div>
-      <div class="tile placeholder">Додайте роботу</div>
+    <div class="grid-3">
+      <a href="ai-generations.html" class="card">
+        <span class="num">01</span>
+        <h3>AI-генерації</h3>
+        <p>Фото та відео, створені за допомогою нейромереж — від концепції до фінального кадру.</p>
+      </a>
+      <a href="art.html" class="card">
+        <span class="num">02</span>
+        <h3>Малюнки</h3>
+        <p>Живопис власними руками — там, де лінія і колір народжуються без алгоритмів.</p>
+      </a>
+      <a href="3d-visualization.html" class="card">
+        <span class="num">03</span>
+        <h3>3D-візуалізація</h3>
+        <p>Інтер'єри та простори, візуалізовані з увагою до світла, матеріалу й атмосфери.</p>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="section paint" id="paint">
+<section class="tight" style="border-top:1px solid var(--line);">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Живопис</h2>
-      <p>Особисті малюнки, створені фарбами та іншими матеріалами власноруч.</p>
-    </div>
-    <div class="grid">
-      <div class="tile placeholder">Робота 1</div>
-      <div class="tile placeholder">Робота 2</div>
-      <div class="tile placeholder">Робота 3</div>
-      <div class="tile placeholder">Робота 4</div>
-    </div>
-  </div>
-</section>
-
-<section class="section render" id="render">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>3D-візуалізація інтер'єрів</h2>
-      <p>Рендери у 3ds Max + Corona Renderer.</p>
-    </div>
-    <div class="grid">
-      <div class="tile placeholder">Рендер 1</div>
-      <div class="tile placeholder">Рендер 2</div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="wrap about">
-    <div class="photo">Ваше фото</div>
-    <div>
-      <h2>Про мене</h2>
-      <p>Тут буде короткий текст про вас — досвід, підхід до роботи, що для вас важливо у творчості.</p>
-      <div class="skills">
-        <span>3ds Max</span>
-        <span>Corona Renderer</span>
-        <span>Leonardo.Ai</span>
-        <span>Kling AI</span>
-        <span>CapCut</span>
+    <div class="about-block">
+      <div class="portrait">
+        <img src="assets/img/hero-bg.png" alt="NATAIRA — атмосфера роботи">
+      </div>
+      <div>
+        <div class="eyebrow">Про мене</div>
+        <h2>Мистецтво. Уява. Технології.</h2>
+        <p>NATAIRA — простір, де мистецтво зустрічається з технологіями, а уява стає рушієм нових форм.</p>
+        <p>Тут матеріальне переходить у цифрове, знайоме набуває нового звучання, а ідеї перетворюються на візуальні світи.</p>
+        <div class="cta-row" style="text-align:left; margin-top: 32px;">
+          <a href="about.html" class="btn">Дізнатися більше</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section contact" id="contact">
-  <div class="wrap">
-    <h2>Працюємо разом?</h2>
-    <p>Відкрита до проєктів з AI-контенту, 3D-візуалізації та ілюстрації.</p>
-    <div class="links">
-      <a class="btn solid" href="mailto:youremail@example.com">Написати листа</a>
-      <a class="btn ghost" href="https://freelancehunt.com/freelancer/nataliia_sob.html" target="_blank" rel="noopener">Freelancehunt</a>
+<section class="tight" style="border-top:1px solid var(--line);">
+  <div class="wrap" style="text-align:center;">
+    <div class="eyebrow">Контакти</div>
+    <h2 style="margin-top:16px; font-size: clamp(26px,3.2vw,36px);">Маєте ідею? Обговорімо її</h2>
+    <div class="cta-row">
+      <a href="contacts.html" class="btn solid">Написати мені</a>
     </div>
   </div>
 </section>
 
-<footer>
-  © <span id="year"></span> Nataliia Sob. Усі права захищено.
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="index.html" class="logo">
+        <svg class="logo-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:26px;height:26px;">
+          <circle cx="20" cy="20" r="13" stroke-width="1"/>
+          <circle cx="20" cy="20" r="7.5" stroke-width="1"/>
+        </svg>
+        <span class="logo-text" style="font-size:17px;">NATAIRA</span>
+      </a>
+      <nav class="footer-nav">
+        <a href="ai-generations.html">AI-генерації</a>
+        <a href="art.html">Малюнки</a>
+        <a href="3d-visualization.html">3D-візуалізація</a>
+        <a href="about.html">Про мене</a>
+        <a href="contacts.html">Контакти</a>
+      </nav>
+      <div class="footer-social">
+        <a href="#">Instagram</a>
+        <a href="#">Behance</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NATAIRA. Всі права захищені.</span>
+      <span>Ancient roots × Artificial intelligence</span>
+    </div>
+  </div>
 </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-</script>
-
+<script src="assets/js/main.js"></script>
 </body>
 </html>
