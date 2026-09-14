@@ -10,39 +10,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #1a1a18;
-    --bg-soft: #232320;
-    --card: rgba(43, 42, 40, 0.75);
+    --bg-overlay: rgba(26, 26, 24, 0.75);
+    --bg-soft: rgba(35, 35, 32, 0.85);
+    --card: rgba(43, 42, 40, 0.65);
     --ink: #f2f0eb;
     --ink-dim: #b9b6ae;
-    --line: #3c3b37;
+    --line: rgba(242, 240, 235, 0.12);
     --wine: #7c3341;
     --wine-soft: #5c2732;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  
   body {
     margin: 0;
-    background: var(--bg);
+    background: transparent;
     color: var(--ink);
     font-family: 'Manrope', sans-serif;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     position: relative;
+    min-height: 100vh;
   }
 
-  /* Фоновий шар */
+  /* Фіксований фон */
   .bg-layer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('bg.jpg');
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url('bg.jpg');
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
+    z-index: -2;
   }
 
   h1, h2, h3, .serif {
@@ -57,8 +59,9 @@
   /* NAV */
   header {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(26, 26, 24, 0.88);
-    backdrop-filter: blur(8px);
+    background: rgba(26, 26, 24, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
   }
   nav.wrap {
@@ -104,7 +107,8 @@
     border: 1px solid var(--line);
     border-radius: 999px;
     padding: 6px 16px;
-    background: rgba(26, 26, 24, 0.6);
+    background: rgba(26, 26, 24, 0.4);
+    backdrop-filter: blur(4px);
   }
 
   /* SECTION HEADS */
@@ -117,7 +121,7 @@
   .section-head h2 { font-size: clamp(26px, 3.4vw, 38px); }
   .section-head p { color: var(--ink-dim); max-width: 360px; font-size: 15px; margin: 0; }
 
-  /* GALLERY: asymmetric grid */
+  /* GALLERY */
   .grid {
     display: grid;
     gap: 20px;
@@ -126,9 +130,12 @@
   .tile {
     position: relative;
     overflow: hidden;
-    border-radius: 2px;
+    border-radius: 4px;
     background: var(--card);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     aspect-ratio: 4/5;
+    border: 1px solid var(--line);
   }
   .tile img, .tile video {
     width: 100%; height: 100%; object-fit: cover;
@@ -138,7 +145,7 @@
   .tile .cap {
     position: absolute; left: 0; right: 0; bottom: 0;
     padding: 16px;
-    background: linear-gradient(to top, rgba(0,0,0,.75), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,.8), transparent);
     font-size: 13px; color: var(--ink);
     opacity: 0; transition: opacity .25s;
   }
@@ -149,16 +156,16 @@
     border: 1px dashed var(--line);
   }
 
-  /* AI section: wide horizontal cards */
+  /* AI section */
   .ai .grid { grid-template-columns: repeat(6, 1fr); }
   .ai .tile { grid-column: span 3; aspect-ratio: 16/10; }
   .ai .tile.wide { grid-column: span 6; aspect-ratio: 21/9; }
 
-  /* Painting section: dense small tiles */
+  /* Painting section */
   .paint .grid { grid-template-columns: repeat(4, 1fr); }
   .paint .tile { grid-column: span 1; aspect-ratio: 3/4; }
 
-  /* 3D section: two large frames */
+  /* 3D section */
   .render .grid { grid-template-columns: repeat(2, 1fr); }
   .render .tile { aspect-ratio: 16/10; }
 
@@ -167,9 +174,10 @@
     display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center;
   }
   .about .photo {
-    aspect-ratio: 4/5; background: var(--card); border-radius: 2px;
+    aspect-ratio: 4/5; background: var(--card); border-radius: 4px;
     display: flex; align-items: center; justify-content: center;
     color: var(--ink-dim); font-size: 13px; overflow: hidden;
+    border: 1px solid var(--line);
   }
   .about .photo img { width: 100%; height: 100%; object-fit: cover; }
   .about h2 { font-size: clamp(26px, 3.4vw, 36px); margin-bottom: 18px; }
@@ -178,7 +186,7 @@
     display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;
   }
   .about .skills span {
-    font-size: 13px; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; color: var(--ink-dim); background: rgba(26, 26, 24, 0.6);
+    font-size: 13px; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; color: var(--ink-dim); background: rgba(26, 26, 24, 0.4);
   }
 
   /* CONTACT */
@@ -195,7 +203,7 @@
   }
   .btn.solid { background: var(--wine); border-color: var(--wine-soft); }
   .btn.solid:hover { background: var(--wine-soft); }
-  .btn.ghost:hover { background: var(--ink); color: var(--bg); }
+  .btn.ghost:hover { background: var(--ink); color: #1a1a18; }
 
   footer {
     padding: 36px 0; border-top: 1px solid var(--line);
@@ -205,7 +213,8 @@
   @media (max-width: 800px) {
     .navlinks {
       position: fixed; top: 72px; left: 0; right: 0;
-      background: var(--bg-soft);
+      background: rgba(35, 35, 32, 0.95);
+      backdrop-filter: blur(16px);
       flex-direction: column;
       padding: 20px 24px; gap: 18px;
       border-bottom: 1px solid var(--line);
