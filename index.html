@@ -98,7 +98,7 @@
         }
 
         .content-block {
-            max-width: 950px;
+            max-width: 1000px;
             margin: 0 auto;
             text-align: center;
         }
@@ -106,12 +106,12 @@
         .btn {
             display: inline-block;
             margin-top: 25px;
-            padding: 12px 32px;
+            padding: 14px 36px;
             border: 1px solid var(--accent);
             color: var(--accent);
             text-decoration: none;
-            border-radius: 25px;
-            font-size: 0.9rem;
+            border-radius: 30px;
+            font-size: 1rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             transition: all 0.3s ease;
@@ -126,7 +126,7 @@
 
         /* СЕКЦІЇ */
         section {
-            padding: 120px 8% 70px;
+            padding: 130px 8% 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -134,7 +134,7 @@
             position: relative;
         }
 
-        /* СЕКЦІЯ HOME */
+        /* СЕКЦІЯ HOME (ЗБІЛЬШЕНИЙ ТЕКСТ) */
         #home {
             min-height: 100vh;
             background-image: url('1.jpg');
@@ -148,7 +148,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(30, 26, 21, 0.78);
+            background: rgba(30, 26, 21, 0.82);
             z-index: 1;
         }
 
@@ -158,57 +158,50 @@
         }
 
         .hero-brand-logo {
-            max-width: 260px;
-            width: 70%;
+            max-width: 300px;
+            width: 75%;
             height: auto;
-            margin: 0 auto 15px auto;
+            margin: 0 auto 20px auto;
             display: block;
-            filter: drop-shadow(0 0 20px rgba(212, 139, 94, 0.35));
+            filter: drop-shadow(0 0 20px rgba(212, 139, 94, 0.4));
         }
 
-        h1 {
-            font-size: 2.6rem;
-            margin-bottom: 15px;
+        #home h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
             color: var(--accent);
-            line-height: 1.2;
+            line-height: 1.25;
         }
 
-        .about-intro {
-            font-size: 1.15rem;
+        #home .about-intro {
+            font-size: 1.35rem;
             font-weight: 300;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             color: var(--text-main);
-            max-width: 820px;
-            line-height: 1.7;
+            max-width: 900px;
+            line-height: 1.8;
         }
 
-        .tag-line {
+        #home .tag-line {
             font-family: var(--font-heading);
             color: var(--accent);
-            letter-spacing: 3px;
-            font-size: 1rem;
-            margin-bottom: 20px;
+            letter-spacing: 4px;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
         }
 
         /* ГАЛЕРЕЯ ТА ІНШІ БЛОКИ */
         h2 {
-            font-size: 2.4rem;
+            font-size: 2.6rem;
             color: var(--accent);
             letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .sub-heading {
-            color: var(--text-muted);
-            font-size: 1.05rem;
             margin-bottom: 25px;
-            max-width: 800px;
         }
 
         .filters {
             display: flex;
             gap: 18px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 12px;
             justify-content: center;
@@ -222,7 +215,7 @@
             color: var(--text-muted);
             transition: color 0.3s;
             padding: 4px 10px;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         .filter-btn:hover, .filter-btn.active {
@@ -245,17 +238,17 @@
         .category-info-box h3 {
             font-family: var(--font-heading);
             color: var(--accent);
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             margin-bottom: 10px;
             letter-spacing: 1.5px;
         }
 
         .category-info-box p {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: var(--text-main);
-            max-width: 820px;
+            max-width: 850px;
             margin: 0 auto;
-            line-height: 1.7;
+            line-height: 1.75;
             font-weight: 300;
         }
 
@@ -291,13 +284,14 @@
             aspect-ratio: 4 / 3;
             overflow: hidden;
             position: relative;
+            background-color: #1a1714;
         }
 
-        /* Фільтр єдиної гами сайту, що плавно зникає при наведенні */
         .gallery-img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
             filter: saturate(75%) brightness(96%) sepia(18%);
             transition: filter 0.5s ease, transform 0.5s ease;
         }
@@ -346,21 +340,21 @@
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 50px 40px;
-            margin: 30px auto 0 auto;
+            margin: 40px auto 0 auto;
             width: 100%;
-            max-width: 950px;
+            max-width: 1000px;
             text-align: center;
         }
 
         .extra-section-box h3 {
             color: var(--accent);
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 25px;
             letter-spacing: 2px;
         }
 
         .extra-section-box .disciplines-text {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             line-height: 1.9;
             font-weight: 300;
             color: var(--text-main);
@@ -499,8 +493,9 @@
             .header-logo img { height: 55px; }
             .nav-links { gap: 10px; flex-wrap: wrap; justify-content: center; }
             .nav-links a { font-size: 0.78rem; }
-            h1 { font-size: 2.1rem; }
-            h2 { font-size: 1.8rem; }
+            #home h1 { font-size: 2.3rem; }
+            #home .about-intro { font-size: 1.1rem; }
+            h2 { font-size: 2rem; }
             section { padding: 110px 5% 50px; }
             .gallery { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
         }
@@ -511,7 +506,7 @@
     <!-- НАВІГАЦІЯ -->
     <header>
         <a href="#home" class="header-logo">
-            <img src="logo.png" alt="NATAIRA Emblem & Logo">
+            <img src="./logo.png" alt="NATAIRA Emblem & Logo">
         </a>
         <nav>
             <ul class="nav-links">
@@ -529,7 +524,7 @@
     <!-- HOME -->
     <section id="home">
         <div class="content-block">
-            <img src="logo.png" alt="NATAIRA Brand Logo" class="hero-brand-logo">
+            <img src="./logo.png" alt="NATAIRA Brand Logo" class="hero-brand-logo">
             <h1>Мистецтво. Уява. Технології.</h1>
             
             <p class="about-intro">
@@ -546,7 +541,6 @@
     <section id="portfolio">
         <div class="content-block" style="max-width: 1150px; width: 100%;">
             <h2>Works</h2>
-            <p class="sub-heading">Фото та відео робіт. Кожен візуал має власну назву та короткий опис.</p>
             
             <!-- Кнопки-фільтри -->
             <div class="filters">
@@ -569,7 +563,7 @@
                 <!-- AI -->
                 <div class="gallery-item" data-category="ai">
                     <div class="gallery-img-wrap">
-                        <img src="ai/ai-1.jpg" alt="ai-1.jpg">
+                        <img src="./ai/ai-1.jpg" alt="ai-1.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">AI Generations</span>
@@ -580,7 +574,7 @@
 
                 <div class="gallery-item" data-category="ai">
                     <div class="gallery-img-wrap">
-                        <img src="ai/ai-2.jpg" alt="ai-2.jpg">
+                        <img src="./ai/ai-2.jpg" alt="ai-2.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">AI Generations</span>
@@ -591,7 +585,7 @@
 
                 <div class="gallery-item" data-category="ai">
                     <div class="gallery-img-wrap">
-                        <img src="ai/ai-3.jpg" alt="ai-3.jpg">
+                        <img src="./ai/ai-3.jpg" alt="ai-3.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">AI Generations</span>
@@ -602,7 +596,7 @@
 
                 <div class="gallery-item" data-category="ai">
                     <div class="gallery-img-wrap">
-                        <img src="ai/ai-4.jpg" alt="ai-4.jpg">
+                        <img src="./ai/ai-4.jpg" alt="ai-4.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">AI Generations</span>
@@ -613,7 +607,7 @@
 
                 <div class="gallery-item" data-category="ai">
                     <div class="gallery-img-wrap">
-                        <img src="ai/ai-5.jpg" alt="ai-5.jpg">
+                        <img src="./ai/ai-5.jpg" alt="ai-5.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">AI Generations</span>
@@ -626,7 +620,7 @@
                 <!-- ART -->
                 <div class="gallery-item" data-category="art">
                     <div class="gallery-img-wrap">
-                        <img src="art/art-1.jpg" alt="art-1.jpg">
+                        <img src="./art/art-1.jpg" alt="art-1.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
@@ -637,7 +631,7 @@
 
                 <div class="gallery-item" data-category="art">
                     <div class="gallery-img-wrap">
-                        <img src="art/art-2.jpg" alt="art-2.jpg">
+                        <img src="./art/art-2.jpg" alt="art-2.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
@@ -648,7 +642,7 @@
 
                 <div class="gallery-item" data-category="art">
                     <div class="gallery-img-wrap">
-                        <img src="art/art-3.jpg" alt="art-3.jpg">
+                        <img src="./art/art-3.jpg" alt="art-3.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
@@ -659,7 +653,7 @@
 
                 <div class="gallery-item" data-category="art">
                     <div class="gallery-img-wrap">
-                        <img src="art/art-4.jpg" alt="art-4.jpg">
+                        <img src="./art/art-4.jpg" alt="art-4.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
@@ -670,7 +664,7 @@
 
                 <div class="gallery-item" data-category="art">
                     <div class="gallery-img-wrap">
-                        <img src="art/art-5.jpg" alt="art-5.jpg">
+                        <img src="./art/art-5.jpg" alt="art-5.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
@@ -683,7 +677,7 @@
                 <!-- VISUALS -->
                 <div class="gallery-item" data-category="visuals">
                     <div class="gallery-img-wrap">
-                        <img src="visuals/visual-1.jpg" alt="visual-1.jpg">
+                        <img src="./visuals/visual-1.jpg" alt="visual-1.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Visuals</span>
@@ -694,7 +688,7 @@
 
                 <div class="gallery-item" data-category="visuals">
                     <div class="gallery-img-wrap">
-                        <img src="visuals/visual-2.jpg" alt="visual-2.jpg">
+                        <img src="./visuals/visual-2.jpg" alt="visual-2.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Visuals</span>
@@ -705,7 +699,7 @@
 
                 <div class="gallery-item" data-category="visuals">
                     <div class="gallery-img-wrap">
-                        <img src="visuals/visual-3.jpg" alt="visual-3.jpg">
+                        <img src="./visuals/visual-3.jpg" alt="visual-3.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Visuals</span>
@@ -716,7 +710,7 @@
 
                 <div class="gallery-item" data-category="visuals">
                     <div class="gallery-img-wrap">
-                        <img src="visuals/visual-4.jpg" alt="visual-4.jpg">
+                        <img src="./visuals/visual-4.jpg" alt="visual-4.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Visuals</span>
@@ -727,7 +721,7 @@
 
                 <div class="gallery-item" data-category="visuals">
                     <div class="gallery-img-wrap">
-                        <img src="visuals/visual-5.jpg" alt="visual-5.jpg">
+                        <img src="./visuals/visual-5.jpg" alt="visual-5.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Visuals</span>
@@ -740,7 +734,7 @@
                 <!-- 3D -->
                 <div class="gallery-item" data-category="3d">
                     <div class="gallery-img-wrap">
-                        <img src="3d/3d-1.jpg" alt="3d-1.jpg">
+                        <img src="./3d/3d-1.jpg" alt="3d-1.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">3D Modeling</span>
@@ -751,7 +745,7 @@
 
                 <div class="gallery-item" data-category="3d">
                     <div class="gallery-img-wrap">
-                        <img src="3d/3d-2.jpg" alt="3d-2.jpg">
+                        <img src="./3d/3d-2.jpg" alt="3d-2.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">3D Modeling</span>
@@ -762,7 +756,7 @@
 
                 <div class="gallery-item" data-category="3d">
                     <div class="gallery-img-wrap">
-                        <img src="3d/3d-3.jpg" alt="3d-3.jpg">
+                        <img src="./3d/3d-3.jpg" alt="3d-3.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">3D Modeling</span>
@@ -773,7 +767,7 @@
 
                 <div class="gallery-item" data-category="3d">
                     <div class="gallery-img-wrap">
-                        <img src="3d/3d-4.jpg" alt="3d-4.jpg">
+                        <img src="./3d/3d-4.jpg" alt="3d-4.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">3D Modeling</span>
@@ -784,7 +778,7 @@
 
                 <div class="gallery-item" data-category="3d">
                     <div class="gallery-img-wrap">
-                        <img src="3d/3d-5.jpg" alt="3d-5.jpg">
+                        <img src="./3d/3d-5.jpg" alt="3d-5.jpg" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">3D Modeling</span>
@@ -804,22 +798,21 @@
                     3D формує простір.<br><br>
                     Їхнє поєднання відкриває можливість створювати те, що складно визначити одним жанром.
                 </div>
-                <div class="tag-line" style="margin-bottom: 0;">AI × ART × 3D</div>
+                <div class="tag-line" style="margin-bottom: 0; color: var(--accent); font-family: var(--font-heading); letter-spacing: 3px;">AI × ART × 3D</div>
             </div>
 
-            <!-- ABOUT БЛОК (В ОБ'ЄДНАНІЙ СЕКЦІЇ) -->
-            <div id="about" style="margin-top: 70px; width: 100%;">
+            <!-- ABOUT БЛОК -->
+            <div id="about" style="margin-top: 80px; width: 100%;">
                 <h2>About</h2>
-                <p class="about-intro" style="margin: 20px auto 0 auto;">
-                    Я працюю на перетині творчості та технологій, поєднуючи AI, цифрові інструменти, 3D та традиційне мистецтво. 
-                    Мені цікаві не просто нові інструменти, а те, що з їхньою допомогою можна створити.
+                <p class="about-intro" style="margin: 20px auto 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--text-main); max-width: 850px; font-weight: 300;">
+                    Я працюю на перетині творчості та технологій, поєднуючи AI, цифрові інструменти, 3D та традиційне мистецтво. Мені цікаві не просто нові інструменти, а те, що з їхньою допомогою можна створити.
                 </p>
             </div>
 
-            <!-- CONTACT БЛОК (В ОБ'ЄДНАНІЙ СЕКЦІЇ) -->
-            <div id="contact" style="margin-top: 70px; width: 100%;">
+            <!-- CONTACT БЛОК -->
+            <div id="contact" style="margin-top: 80px; width: 100%;">
                 <h2>Let's create something new.</h2>
-                <p class="about-intro" style="margin: 15px auto 25px auto;">
+                <p class="about-intro" style="margin: 15px auto 25px auto; font-size: 1.15rem; color: var(--text-muted); font-weight: 300;">
                     Є ідея, проєкт або просто образ, який хочеться втілити?
                 </p>
                 <a href="mailto:contact@nataira.com" class="btn">Let's talk &rarr;</a>
@@ -830,7 +823,7 @@
 
     <!-- ФУТЕР -->
     <footer>
-        <img src="logo.png" alt="NATAIRA" class="footer-logo-img">
+        <img src="./logo.png" alt="NATAIRA" class="footer-logo-img">
         <div style="font-family: var(--font-heading); color: var(--accent); letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 6px;">
             NATAIRA
         </div>
