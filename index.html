@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Легке затемнення фону (25%), щоб картинка bg.jpg була світлою та чіткою */
     --bg-overlay: rgba(0, 0, 0, 0.25);
     --bg-header: rgba(18, 18, 16, 0.65);
     --card: rgba(30, 29, 27, 0.55);
@@ -34,7 +33,6 @@
     min-height: 100vh;
   }
 
-  /* Світлий та чіткий фон */
   .bg-layer {
     position: fixed;
     top: 0;
@@ -70,17 +68,18 @@
     height: 76px;
   }
   
-  /* Логотип зі скану/картинки */
   .brand {
     display: flex;
     align-items: center;
     text-decoration: none;
   }
   .brand .logo-img {
-    height: 38px; /* Висота логотипу в шапці */
+    height: 38px;
     width: auto;
     display: block;
     object-fit: contain;
+    mix-blend-mode: screen;
+    filter: contrast(110%) brightness(110%);
   }
 
   .navlinks { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-size: 15px; }
@@ -249,7 +248,6 @@
 <header>
   <nav class="wrap">
     <a href="#top" class="brand">
-      <!-- Використовуємо точне зображення логотипу -->
       <img src="logo.png" alt="NATAIRA" class="logo-img">
     </a>
     <button class="navtoggle" id="navToggle" aria-label="Меню">☰</button>
