@@ -4,19 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NATAIRA | Мистецтво · Уява · Технології</title>
-    <!-- Підключення елегантних шрифтів -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* Оновлені світліші та тепліші палітри */
         :root {
-            --bg-dark: #26231e;      /* Теплий природний відтінок замість темного */
-            --bg-light: #322d26;     /* Акцентні блоки */
-            --text-main: #f0e8dd;    /* Світлий читабельний текст */
+            --bg-dark: #23201b;
+            --bg-light: #2d2923;
+            --text-main: #f0e8dd;
             --text-muted: #bdae99;
-            --accent: #d48b5e;      /* Мідний / теплий теракотовий */
+            --accent: #d48b5e;
             --border-color: rgba(212, 139, 94, 0.35);
             
             --font-heading: 'Cinzel', serif;
@@ -39,33 +37,46 @@
             font-family: var(--font-text);
             line-height: 1.7;
             overflow-x: hidden;
-            text-align: center; /* Загальне центрування тексту */
+            text-align: center;
         }
 
-        h1, h2, h3, .logo-text, .nav-links a {
+        h1, h2, h3, .nav-links a {
             font-family: var(--font-heading);
             font-weight: 400;
         }
 
-        /* Навігаційна шапка */
+        /* Навігація */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 20px 50px;
+            padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(38, 35, 30, 0.85);
+            background: rgba(35, 32, 27, 0.88);
             backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logo-img {
-            height: 38px;
+        .header-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .header-logo img {
+            height: 55px;
+            width: auto;
             object-fit: contain;
-            display: block;
+            mix-blend-mode: lighten; 
+            filter: brightness(130%) contrast(120%) drop-shadow(0 0 6px rgba(212, 139, 94, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .header-logo:hover img {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -86,11 +97,21 @@
             color: var(--accent);
         }
 
-        /* Центровані блоки контенту */
         .content-block {
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto;
             text-align: center;
+        }
+
+        /* Логотип у HERO секції */
+        .hero-brand-logo {
+            max-width: 380px;
+            width: 90%;
+            height: auto;
+            margin: 0 auto 30px auto;
+            display: block;
+            mix-blend-mode: lighten;
+            filter: brightness(135%) contrast(125%) drop-shadow(0 0 20px rgba(212, 139, 94, 0.4));
         }
 
         /* Кнопки */
@@ -130,12 +151,12 @@
             border-radius: 15px;
             color: var(--text-muted);
             letter-spacing: 1px;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
         }
 
-        /* Секції та зображення */
+        /* Секції */
         section {
-            padding: 120px 10% 100px;
+            padding: 130px 10% 100px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -144,7 +165,6 @@
             position: relative;
         }
 
-        /* Оновлений світліший ефект для фонів */
         .bg-image {
             background-size: cover;
             background-position: center;
@@ -156,7 +176,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(30, 26, 21, 0.35); /* Значно світліша накладка */
+            background: rgba(30, 26, 21, 0.38);
             z-index: 1;
         }
 
@@ -165,18 +185,16 @@
             z-index: 2;
         }
 
-        /* Тінь для тексту поверх фото для чіткості */
         .bg-image h1, .bg-image h2, .bg-image h3, .bg-image p {
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
         }
 
         .bg-1 { background-image: url('1.jpg'); }
         .bg-2 { background-image: url('2.jpg'); }
         .bg-3 { background-image: url('3.jpg'); }
 
-        /* Заголовки */
         h1 {
-            font-size: 3.2rem;
+            font-size: 3rem;
             margin-bottom: 25px;
             color: var(--accent);
             line-height: 1.2;
@@ -203,7 +221,7 @@
             font-weight: 300;
         }
 
-        /* Фільтри Selected Work */
+        /* Фільтри та Галерея */
         .filters {
             display: flex;
             gap: 25px;
@@ -213,16 +231,64 @@
             justify-content: center;
         }
         
-        .filters span {
+        .filter-btn {
             cursor: pointer;
             font-family: var(--font-heading);
             letter-spacing: 1px;
+            color: var(--text-muted);
             transition: color 0.3s;
+            padding-bottom: 5px;
         }
 
-        .filters span:hover { color: var(--accent); }
+        .filter-btn:hover, .filter-btn.active {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
 
-        /* Етапи процесу */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+            width: 100%;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            aspect-ratio: 4 / 3;
+            background-color: var(--bg-light);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item .info {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 15px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            color: var(--text-main);
+            font-size: 0.9rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .info {
+            opacity: 1;
+        }
+
         .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -249,7 +315,6 @@
             font-size: 1.1rem;
         }
 
-        /* Акцентний блок */
         .accent-block {
             text-align: center;
             padding: 140px 10%;
@@ -267,7 +332,6 @@
             font-family: var(--font-heading);
         }
 
-        /* Футер */
         footer {
             text-align: center;
             padding: 60px 10%;
@@ -275,9 +339,12 @@
             border-top: 1px solid var(--border-color);
         }
 
-        footer img {
-            height: 48px;
+        .footer-logo-img {
+            height: 90px;
+            width: auto;
             margin-bottom: 20px;
+            mix-blend-mode: lighten;
+            filter: brightness(130%) contrast(120%) drop-shadow(0 0 12px rgba(212, 139, 94, 0.4));
         }
 
         .footer-tags {
@@ -287,13 +354,13 @@
             margin-bottom: 12px;
         }
 
-        /* Адаптивність для мобільних пристроїв */
         @media (max-width: 768px) {
             header { padding: 15px 20px; flex-direction: column; gap: 15px; }
             .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
             h1 { font-size: 2.2rem; }
             h2 { font-size: 1.8rem; }
             section { padding: 100px 5% 60px; }
+            .hero-brand-logo { max-width: 280px; }
         }
     </style>
 </head>
@@ -301,9 +368,9 @@
 
     <!-- НАВІГАЦІЯ -->
     <header>
-        <div class="logo">
-            <a href="#hero"><img src="logo.jpg" alt="NATAIRA Logo" class="logo-img"></a>
-        </div>
+        <a href="#hero" class="header-logo">
+            <img src="logo.jpg" alt="NATAIRA Emblem & Logo">
+        </a>
         <nav>
             <ul class="nav-links">
                 <li><a href="#ai">AI-генерації</a></li>
@@ -318,8 +385,9 @@
     <!-- 01 HERO -->
     <section id="hero" class="bg-image bg-1">
         <div class="content-block">
+            <img src="logo.jpg" alt="NATAIRA Brand Logo" class="hero-brand-logo">
             <h1>Мистецтво. Уява. Технології.</h1>
-            <p>NATAIRA — простір, де образи, ідеї та експерименти зустрічаються з технологіями. Тут матеріальне переходить у цифрове, знайоме набуває нової форми, а уява стає точкою відліку для нових світів.</p>
+            <p>NATAIRA — простір, де образи, ідеї та експерименти зустрічаються з технологіями[cite: 1]. Тут матеріальне переходить у цифрове, знайоме набуває нової форми, а уява стає точкою відліку для нових світів[cite: 1].</p>
             <div class="tags">
                 <span class="tag">AI</span>
                 <span class="tag">ART</span>
@@ -334,15 +402,15 @@
     <section id="ai" class="bg-image bg-2">
         <div class="content-block">
             <h2>АІ — новий інструментарій для образу</h2>
-            <p>АІ для мене — не заміна творчості, а інструмент її розширення.</p>
-            <p>Я працюю з генеративними моделями, промптами, АІ-зображеннями, відео та цифровими персонажами, досліджуючи, як керувати результатом і перетворювати ідею на конкретний візуальний образ.</p>
+            <p>АІ для мене — не заміна творчості, а інструмент її розширення[cite: 1].</p>
+            <p>Я працюю з генеративними моделями, промптами, АІ-зображеннями, відео та цифровими персонажами, досліджуючи, як керувати результатом і перетворювати ідею на конкретний візуальний образ[cite: 1].</p>
             <div class="tags">
                 <span class="tag">PROMPT ENGINEERING</span>
                 <span class="tag">AI IMAGE</span>
                 <span class="tag">AI VIDEO</span>
                 <span class="tag">GENERATIVE ART</span>
             </div>
-            <a href="#" class="btn">View AI work &rarr;</a>
+            <a href="#selected-work" class="btn">View AI work &rarr;</a>
         </div>
     </section>
 
@@ -350,16 +418,16 @@
     <section id="art">
         <div class="content-block">
             <h2>ART — форма, матеріал, відчуття</h2>
-            <p>До цифрового я приходжу через матеріальне.</p>
-            <p>Живопис, колір, фактура та ручна робота залишаються важливою частиною мого візуального мислення.</p>
-            <p>ART у NATAIRA — це простір для авторських робіт, експериментів і пошуку власної мови образу.</p>
+            <p>До цифрового я приходжу через матеріальне[cite: 1].</p>
+            <p>Живопис, колір, фактура та ручна робота залишаються важливою частиною мого візуального мислення[cite: 1].</p>
+            <p>ART у NATAIRA — це простір для авторських робіт, експериментів і пошуку власної мови образу[cite: 1].</p>
             <div class="tags">
                 <span class="tag">PAINTING</span>
                 <span class="tag">COLOR</span>
                 <span class="tag">TEXTURE</span>
                 <span class="tag">EXPERIMENT</span>
             </div>
-            <a href="#" class="btn">View ART &rarr;</a>
+            <a href="#selected-work" class="btn">View ART &rarr;</a>
         </div>
     </section>
 
@@ -368,36 +436,76 @@
         <div class="content-block">
             <h2>VISUALS</h2>
             <h3>Digital images · Visual concepts · AI content</h3>
-            <p>Візуальні концепції, образи та цифрові рішення для контенту, проєктів і власних експериментів.</p>
+            <p>Візуальні концепції, образи та цифрові рішення для контенту, проєктів і власних експериментів[cite: 1].</p>
             <div class="tags">
                 <span class="tag">CONCEPTS</span>
                 <span class="tag">DIGITAL</span>
                 <span class="tag">VISUALS</span>
                 <span class="tag">AI CONTENT</span>
             </div>
-            <a href="#" class="btn">View visuals &rarr;</a>
+            <a href="#selected-work" class="btn">View visuals &rarr;</a>
         </div>
     </section>
 
-    <!-- 05 SELECTED WORK -->
+    <!-- 05 SELECTED WORK (ГАЛЕРЕЯ З ФІЛЬТРАМИ) -->
     <section id="selected-work">
         <div class="content-block" style="max-width: 1000px;">
             <h2>Selected Work</h2>
-            <h3>Добірка робіт, експериментів та візуальних досліджень.</h3>
+            <h3>Добірка робіт, експериментів та візуальних досліджень[cite: 1].</h3>
             
+            <!-- Кнопки вкладок -->
             <div class="filters">
-                <span>ALL</span>
-                <span>AI</span>
-                <span>ART</span>
-                <span>VISUALS</span>
-                <span>3D</span>
+                <span class="filter-btn active" data-filter="all">ALL</span>
+                <span class="filter-btn" data-filter="ai">AI</span>
+                <span class="filter-btn" data-filter="art">ART</span>
+                <span class="filter-btn" data-filter="visuals">VISUALS</span>
+                <span class="filter-btn" data-filter="3d">3D</span>
             </div>
             
-            <div style="height: 280px; border: 1px dashed var(--border-color); display: flex; align-items: center; justify-content: center; margin-bottom: 25px; border-radius: 8px; background: rgba(0,0,0,0.15);">
-                <p style="color: var(--text-muted);">[ Візуальні роботи ]</p>
+            <!-- Сітка зображень -->
+            <div class="gallery">
+                <!-- AI Роботи -->
+                <div class="gallery-item" data-category="ai">
+                    <img src="ai-1.jpg" alt="AI Artwork 1">
+                    <div class="info">AI Concept #1</div>
+                </div>
+                <div class="gallery-item" data-category="ai">
+                    <img src="ai-2.jpg" alt="AI Artwork 2">
+                    <div class="info">AI Concept #2</div>
+                </div>
+
+                <!-- ART Роботи -->
+                <div class="gallery-item" data-category="art">
+                    <img src="art-1.jpg" alt="Art Work 1">
+                    <div class="info">Живопис / Фактура #1</div>
+                </div>
+                <div class="gallery-item" data-category="art">
+                    <img src="art-2.jpg" alt="Art Work 2">
+                    <div class="info">Живопис / Фактура #2</div>
+                </div>
+
+                <!-- VISUALS Роботи -->
+                <div class="gallery-item" data-category="visuals">
+                    <img src="visual-1.jpg" alt="Visual Concept 1">
+                    <div class="info">Digital Concept #1</div>
+                </div>
+                <div class="gallery-item" data-category="visuals">
+                    <img src="visual-2.jpg" alt="Visual Concept 2">
+                    <div class="info">Digital Concept #2</div>
+                </div>
+
+                <!-- 3D Роботи -->
+                <div class="gallery-item" data-category="3d">
+                    <img src="3d-1.jpg" alt="3D Visualization 1">
+                    <div class="info">3D Render #1</div>
+                </div>
+                <div class="gallery-item" data-category="3d">
+                    <img src="3d-2.jpg" alt="3D Visualization 2">
+                    <div class="info">3D Render #2</div>
+                </div>
             </div>
 
-            <a href="#" class="btn">View all work &rarr;</a>
+            <a href="#contact" class="btn">Замовити проект &rarr;</a>
         </div>
     </section>
 
@@ -405,9 +513,9 @@
     <section id="experiments" style="background-color: var(--bg-light);">
         <div class="content-block">
             <h2>Experiments</h2>
-            <p>Не все має одразу ставати готовим проєктом.</p>
-            <p>Експерименти — це спосіб перевіряти ідеї, поєднувати різні інструменти та знаходити несподівані рішення.</p>
-            <p>Тут можна побачити процес пошуку, тести, візуальні дослідження та роботи, які існують просто тому, що їх було цікаво створити.</p>
+            <p>Не все має одразу ставати готовим проєктом[cite: 1].</p>
+            <p>Експерименти — це спосіб перевіряти ідеї, поєднувати різні інструменти та знаходити несподівані рішення[cite: 1].</p>
+            <p>Тут можна побачити процес пошуку, тести, візуальні дослідження та роботи, які існують просто тому, що їх було цікаво створити[cite: 1].</p>
         </div>
     </section>
 
@@ -415,33 +523,33 @@
     <section id="process">
         <div class="content-block" style="max-width: 1000px;">
             <h2>From idea to image</h2>
-            <p>Кожен проєкт починається з ідеї.</p>
+            <p>Кожен проєкт починається з ідеї[cite: 1].</p>
             
             <div class="process-steps">
                 <div class="step">
                     <div class="step-num">01</div>
                     <div class="step-title">IDEA</div>
-                    <p>Задум, настрій, образ або задача.</p>
+                    <p>Задум, настрій, образ або задача[cite: 1].</p>
                 </div>
                 <div class="step">
                     <div class="step-num">02</div>
                     <div class="step-title">EXPLORE</div>
-                    <p>Пошук форми, референсів, матеріалів і напрямку.</p>
+                    <p>Пошук форми, референсів, матеріалів і напрямку[cite: 1].</p>
                 </div>
                 <div class="step">
                     <div class="step-num">03</div>
                     <div class="step-title">CREATE</div>
-                    <p>AI, ART, 3D та цифрові інструменти стають частиною процесу.</p>
+                    <p>AI, ART, 3D та цифрові інструменти стають частиною процесу[cite: 1].</p>
                 </div>
                 <div class="step">
                     <div class="step-num">04</div>
                     <div class="step-title">REFINE</div>
-                    <p>Відбір, корекція, деталізація та робота з результатом.</p>
+                    <p>Відбір, корекція, деталізація та робота з результатом[cite: 1].</p>
                 </div>
                 <div class="step">
                     <div class="step-num">05</div>
                     <div class="step-title">FINAL</div>
-                    <p>Готовий візуальний образ.</p>
+                    <p>Готовий візуальний образ[cite: 1].</p>
                 </div>
             </div>
         </div>
@@ -451,14 +559,14 @@
     <section id="3d" class="bg-image bg-1">
         <div class="content-block">
             <h2>3D — створювати простір з нуля</h2>
-            <p>Форма, світло, матеріали та композиція дозволяють створювати візуальний простір ще до того, як він стає реальністю.</p>
-            <p>3D-візуалізація для мене — це не лише технічний інструмент, а ще один спосіб працювати з атмосферою, масштабом і образом.</p>
+            <p>Форма, світло, матеріали та композиція дозволяють створювати візуальний простір ще до того, як він стає реальністю[cite: 1].</p>
+            <p>3D-візуалізація для мене — це не лише технічний інструмент, а ще один спосіб працювати з атмосферою, масштабом і образом[cite: 1].</p>
             <div class="tags">
                 <span class="tag">3DS MAX</span>
                 <span class="tag">CORONA RENDERER</span>
                 <span class="tag">VISUALIZATION</span>
             </div>
-            <a href="#" class="btn">View 3D work &rarr;</a>
+            <a href="#selected-work" class="btn">View 3D work &rarr;</a>
         </div>
     </section>
 
@@ -466,10 +574,10 @@
     <section id="aixartx3d" class="accent-block">
         <div class="content-block">
             <h2>Where disciplines meet</h2>
-            <p>АІ може створити образ.<br>
-            ART додає йому відчуття.<br>
-            3D формує простір.<br>
-            А поєднання дає можливість створювати те, що складно визначити одним жанром.</p>
+            <p>АІ може створити образ[cite: 1].<br>
+            ART додає йому відчуття[cite: 1].<br>
+            3D формує простір[cite: 1].<br>
+            А поєднання дає можливість створювати те, що складно визначити одним жанром[cite: 1].</p>
             <div class="accent-title">AI × ART × 3D</div>
         </div>
     </section>
@@ -478,9 +586,9 @@
     <section id="about">
         <div class="content-block">
             <h2>About the creator</h2>
-            <p>Я працюю на перетині творчості та технологій, поєднуючи АІ, цифрові інструменти, 3D та традиційне мистецтво.</p>
-            <p>Мені цікаві не просто нові інструменти, а те, що з їхньою допомогою можна створити.</p>
-            <p>NATAIRA — простір, у якому я збираю ці напрямки в одну візуальну систему.</p>
+            <p>Я працюю на перетині творчості та технологій, поєднуючи АІ, цифрові інструменти, 3D та традиційне мистецтво[cite: 1].</p>
+            <p>Мені цікаві не просто нові інструменти, а те, що з їхньою допомогою можна створити[cite: 1].</p>
+            <p>NATAIRA — простір, у якому я збираю ці напрямки в одну візуальну систему[cite: 1].</p>
         </div>
     </section>
 
@@ -488,7 +596,7 @@
     <section id="contact" style="background-color: var(--bg-light);">
         <div class="content-block">
             <h2>Let's create something new.</h2>
-            <p>Є ідея, проєкт або просто образ, який хочеться втілити?</p>
+            <p>Є ідея, проєкт або просто образ, який хочеться втілити?[cite: 1]</p>
             <a href="#" class="btn" style="margin-bottom: 35px;">Let's talk &rarr;</a>
             <div class="footer-tags" style="font-size: 0.9rem;">
                 AI · ART · VISUALS · 3D
@@ -498,7 +606,7 @@
 
     <!-- 12 FOOTER -->
     <footer>
-        <img src="logo.jpg" alt="NATAIRA">
+        <img src="logo.jpg" alt="NATAIRA" class="footer-logo-img">
         <div class="footer-tags">
             AI · ART · VISUALS · 3D
         </div>
@@ -506,5 +614,28 @@
         <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 25px;">© NATAIRA</p>
     </footer>
 
+    <!-- Скрипт перемикання вкладок галереї -->
+    <script>
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
