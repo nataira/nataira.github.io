@@ -125,6 +125,7 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -258,6 +259,7 @@
             border: 1px solid var(--border-color);
             aspect-ratio: 4 / 3;
             background-color: var(--bg-light);
+            cursor: pointer;
         }
 
         .gallery-item img {
@@ -285,6 +287,69 @@
 
         .gallery-item:hover .info {
             opacity: 1;
+        }
+
+        /* Модальне вікно для збільшення фото */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 17, 14, 0.9);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            max-width: 80%;
+            max-height: 80vh;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            object-fit: contain;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-caption {
+            margin-top: 15px;
+            color: var(--text-main);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: var(--text-main);
+            font-size: 35px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--accent);
         }
 
         .process-steps {
@@ -358,6 +423,7 @@
             h2 { font-size: 1.8rem; }
             section { padding: 100px 5% 60px; }
             .hero-brand-logo { max-width: 280px; }
+            .modal-content { max-width: 92%; max-height: 70vh; }
         }
     </style>
 </head>
@@ -372,6 +438,7 @@
             <ul class="nav-links">
                 <li><a href="#ai">AI-генерації</a></li>
                 <li><a href="#art">ART</a></li>
+                <li><a href="#visuals">VISUALS</a></li>
                 <li><a href="#3d">3D-візуалізація</a></li>
                 <li><a href="#about">Про мене</a></li>
                 <li><a href="#contact">Контакти</a></li>
@@ -391,7 +458,7 @@
                 <span class="tag">VISUALS</span>
                 <span class="tag">3D</span>
             </div>
-            <a href="#selected-work" class="btn">Explore the work &rarr;</a>
+            <a href="#selected-work" class="btn" data-filter-target="all">Explore the work &rarr;</a>
         </div>
     </section>
 
@@ -407,7 +474,7 @@
                 <span class="tag">AI VIDEO</span>
                 <span class="tag">GENERATIVE ART</span>
             </div>
-            <a href="#selected-work" class="btn">View AI work &rarr;</a>
+            <a href="#selected-work" class="btn" data-filter-target="ai">View AI work &rarr;</a>
         </div>
     </section>
 
@@ -424,7 +491,7 @@
                 <span class="tag">TEXTURE</span>
                 <span class="tag">EXPERIMENT</span>
             </div>
-            <a href="#selected-work" class="btn">View ART &rarr;</a>
+            <a href="#selected-work" class="btn" data-filter-target="art">View ART &rarr;</a>
         </div>
     </section>
 
@@ -440,11 +507,11 @@
                 <span class="tag">VISUALS</span>
                 <span class="tag">AI CONTENT</span>
             </div>
-            <a href="#selected-work" class="btn">View visuals &rarr;</a>
+            <a href="#selected-work" class="btn" data-filter-target="visuals">View visuals &rarr;</a>
         </div>
     </section>
 
-    <!-- 05 SELECTED WORK (ГАЛЕРЕЯ З ФІЛЬТРАМИ) -->
+    <!-- 05 SELECTED WORK (ГАЛЕРЕЯ З ФІЛЬТРАМИ ТА МОДАЛЬНИМ ПЕРЕГЛЯДОМ) -->
     <section id="selected-work">
         <div class="content-block" style="max-width: 1000px;">
             <h2>Selected Work</h2>
@@ -563,7 +630,7 @@
                 <span class="tag">CORONA RENDERER</span>
                 <span class="tag">VISUALIZATION</span>
             </div>
-            <a href="#selected-work" class="btn">View 3D work &rarr;</a>
+            <a href="#selected-work" class="btn" data-filter-target="3d">View 3D work &rarr;</a>
         </div>
     </section>
 
@@ -611,27 +678,91 @@
         <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 25px;">© NATAIRA</p>
     </footer>
 
-    <!-- Скрипт перемикання вкладок галереї -->
+    <!-- МОДАЛЬНЕ ВІКНО ДЛЯ ЗБІЛЬШЕННЯ ФОТО -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <img class="modal-content" id="modalImg" alt="Enlarged Image">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <!-- СКРИПТИ -->
     <script>
+        // 1. Фільтрація галереї
         const filterBtns = document.querySelectorAll('.filter-btn');
         const galleryItems = document.querySelectorAll('.gallery-item');
 
+        function applyFilter(filter) {
+            filterBtns.forEach(b => {
+                if (b.getAttribute('data-filter') === filter) {
+                    b.classList.add('active');
+                } else {
+                    b.classList.remove('active');
+                }
+            });
+
+            galleryItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
                 const filter = btn.getAttribute('data-filter');
-
-                galleryItems.forEach(item => {
-                    const category = item.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
+                applyFilter(filter);
             });
+        });
+
+        document.querySelectorAll('[data-filter-target]').forEach(targetBtn => {
+            targetBtn.addEventListener('click', () => {
+                const filter = targetBtn.getAttribute('data-filter-target');
+                applyFilter(filter);
+            });
+        });
+
+        // 2. Модальне вікно для перегляду збільшених зображень
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalCaption = document.getElementById('modalCaption');
+        const modalClose = document.getElementById('modalClose');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const info = item.querySelector('.info');
+                
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                modalCaption.textContent = info ? info.textContent : '';
+                
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Заблокувати скролл сторінки
+            });
+        });
+
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = ''; // Відновити скролл
+        }
+
+        modalClose.addEventListener('click', closeModal);
+
+        // Закриття при кліку на затемнений фон навколо зображення
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Закриття клавішею Esc
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                closeModal();
+            }
         });
     </script>
 </body>
