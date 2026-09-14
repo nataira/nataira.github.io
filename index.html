@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NATAIRA | Мистецтво · Уява · Технології</title>
-    <!-- Підключення шрифтів, що пасують концепції -->
+    <!-- Підключення елегантних шрифтів -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* Базові змінні кольорів на основі концепції */
+        /* Оновлені світліші та тепліші палітри */
         :root {
-            --bg-dark: #161512;
-            --bg-light: #211f1b;
-            --text-main: #d3c9b7;
-            --text-muted: #8c8577;
-            --accent: #b67754; /* Мідний/теракотовий */
-            --border-color: rgba(182, 119, 84, 0.3);
+            --bg-dark: #26231e;      /* Теплий природний відтінок замість темного */
+            --bg-light: #322d26;     /* Акцентні блоки */
+            --text-main: #f0e8dd;    /* Світлий читабельний текст */
+            --text-muted: #bdae99;
+            --accent: #d48b5e;      /* Мідний / теплий теракотовий */
+            --border-color: rgba(212, 139, 94, 0.35);
             
             --font-heading: 'Cinzel', serif;
             --font-text: 'Montserrat', sans-serif;
@@ -29,12 +29,17 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
             font-family: var(--font-text);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
+            text-align: center; /* Загальне центрування тексту */
         }
 
         h1, h2, h3, .logo-text, .nav-links a {
@@ -42,7 +47,7 @@
             font-weight: 400;
         }
 
-        /* Навігація */
+        /* Навігаційна шапка */
         header {
             position: fixed;
             top: 0;
@@ -51,28 +56,29 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(22, 21, 18, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(38, 35, 30, 0.85);
+            backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
         }
 
         .logo-img {
-            height: 40px;
+            height: 38px;
             object-fit: contain;
+            display: block;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 35px;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--text-main);
             text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
             transition: color 0.3s;
         }
 
@@ -80,11 +86,18 @@
             color: var(--accent);
         }
 
+        /* Центровані блоки контенту */
+        .content-block {
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
         /* Кнопки */
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
+            margin-top: 25px;
+            padding: 12px 32px;
             border: 1px solid var(--accent);
             color: var(--accent);
             text-decoration: none;
@@ -98,6 +111,7 @@
         .btn:hover {
             background-color: var(--accent);
             color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(212, 139, 94, 0.4);
         }
 
         /* Теги */
@@ -106,30 +120,35 @@
             flex-wrap: wrap;
             gap: 10px;
             margin: 20px 0;
+            justify-content: center;
         }
 
         .tag {
             font-size: 0.75rem;
-            padding: 5px 15px;
-            border: 1px solid var(--text-muted);
+            padding: 5px 16px;
+            border: 1px solid var(--border-color);
             border-radius: 15px;
             color: var(--text-muted);
             letter-spacing: 1px;
+            background: rgba(0, 0, 0, 0.2);
         }
 
-        /* Секції та фони */
+        /* Секції та зображення */
         section {
-            padding: 100px 10%;
+            padding: 120px 10% 100px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
+        /* Оновлений світліший ефект для фонів */
         .bg-image {
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Паралакс ефект */
+            background-attachment: fixed;
             position: relative;
         }
 
@@ -137,7 +156,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(22, 21, 18, 0.7); /* Затемнення фону для читабельності тексту */
+            background: rgba(30, 26, 21, 0.35); /* Значно світліша накладка */
             z-index: 1;
         }
 
@@ -146,38 +165,40 @@
             z-index: 2;
         }
 
+        /* Тінь для тексту поверх фото для чіткості */
+        .bg-image h1, .bg-image h2, .bg-image h3, .bg-image p {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+        }
+
         .bg-1 { background-image: url('1.jpg'); }
         .bg-2 { background-image: url('2.jpg'); }
         .bg-3 { background-image: url('3.jpg'); }
 
-        .content-block {
-            max-width: 600px;
-        }
-
-        /* Типографіка секцій */
+        /* Заголовки */
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 3.2rem;
+            margin-bottom: 25px;
             color: var(--accent);
+            line-height: 1.2;
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             margin-bottom: 20px;
             color: var(--accent);
             letter-spacing: 2px;
         }
 
         h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-main);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             letter-spacing: 1px;
         }
 
         p {
-            font-size: 1rem;
-            margin-bottom: 15px;
+            font-size: 1.05rem;
+            margin-bottom: 18px;
             color: var(--text-main);
             font-weight: 300;
         }
@@ -185,10 +206,11 @@
         /* Фільтри Selected Work */
         .filters {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             margin: 30px 0;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 15px;
+            justify-content: center;
         }
         
         .filters span {
@@ -200,57 +222,61 @@
 
         .filters span:hover { color: var(--accent); }
 
-        /* Процес */
+        /* Етапи процесу */
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
             margin-top: 40px;
+            width: 100%;
         }
 
         .step {
-            border-left: 1px solid var(--accent);
-            padding-left: 20px;
+            border-top: 2px solid var(--accent);
+            padding-top: 20px;
+            text-align: center;
         }
 
         .step-num {
             color: var(--accent);
             font-family: var(--font-heading);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
 
         .step-title {
             font-family: var(--font-heading);
             margin: 10px 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         /* Акцентний блок */
         .accent-block {
             text-align: center;
-            padding: 150px 10%;
+            padding: 140px 10%;
             background-color: var(--bg-light);
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
+            width: 100%;
         }
 
         .accent-title {
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: var(--accent);
-            margin-top: 30px;
-            letter-spacing: 5px;
+            margin-top: 35px;
+            letter-spacing: 6px;
+            font-family: var(--font-heading);
         }
 
         /* Футер */
         footer {
             text-align: center;
-            padding: 50px 10%;
+            padding: 60px 10%;
             background-color: var(--bg-dark);
             border-top: 1px solid var(--border-color);
         }
 
         footer img {
-            height: 50px;
+            height: 48px;
             margin-bottom: 20px;
         }
 
@@ -258,31 +284,35 @@
             font-family: var(--font-heading);
             color: var(--accent);
             letter-spacing: 3px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
-        /* Адаптивність */
+        /* Адаптивність для мобільних пристроїв */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            .nav-links { display: none; } /* Для мобільного можна додати бургер-меню */
-            section { padding: 80px 5%; }
+            header { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            section { padding: 100px 5% 60px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- НАВІГАЦІЯ -->
     <header>
         <div class="logo">
-            <img src="лого.jpg" alt="NATAIRA Logo" class="logo-img">
+            <a href="#hero"><img src="logo.jpg" alt="NATAIRA Logo" class="logo-img"></a>
         </div>
-        <ul class="nav-links">
-            <li><a href="#hero">HOME</a></li>
-            <li><a href="#selected-work">WORK</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#experiments">EXPERIMENTS</a></li>
-            <li><a href="#contact">CONTACT</a></li>
-        </ul>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#ai">AI-генерації</a></li>
+                <li><a href="#art">ART</a></li>
+                <li><a href="#3d">3D-візуалізація</a></li>
+                <li><a href="#about">Про мене</a></li>
+                <li><a href="#contact">Контакти</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- 01 HERO -->
@@ -351,7 +381,7 @@
 
     <!-- 05 SELECTED WORK -->
     <section id="selected-work">
-        <div class="content-block" style="max-width: 100%;">
+        <div class="content-block" style="max-width: 1000px;">
             <h2>Selected Work</h2>
             <h3>Добірка робіт, експериментів та візуальних досліджень.</h3>
             
@@ -363,8 +393,7 @@
                 <span>3D</span>
             </div>
             
-            <!-- Місце для галереї робіт -->
-            <div style="height: 300px; border: 1px dashed var(--border-color); display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <div style="height: 280px; border: 1px dashed var(--border-color); display: flex; align-items: center; justify-content: center; margin-bottom: 25px; border-radius: 8px; background: rgba(0,0,0,0.15);">
                 <p style="color: var(--text-muted);">[ Візуальні роботи ]</p>
             </div>
 
@@ -384,7 +413,7 @@
 
     <!-- 07 PROCESS -->
     <section id="process">
-        <div class="content-block" style="max-width: 100%;">
+        <div class="content-block" style="max-width: 1000px;">
             <h2>From idea to image</h2>
             <p>Кожен проєкт починається з ідеї.</p>
             
@@ -435,12 +464,14 @@
 
     <!-- 09 AI × ART × 3D -->
     <section id="aixartx3d" class="accent-block">
-        <h2>Where disciplines meet</h2>
-        <p>АІ може створити образ.<br>
-        ART додає йому відчуття.<br>
-        3D формує простір.<br>
-        А поєднання дає можливість створювати те, що складно визначити одним жанром.</p>
-        <div class="accent-title">AI × ART × 3D</div>
+        <div class="content-block">
+            <h2>Where disciplines meet</h2>
+            <p>АІ може створити образ.<br>
+            ART додає йому відчуття.<br>
+            3D формує простір.<br>
+            А поєднання дає можливість створювати те, що складно визначити одним жанром.</p>
+            <div class="accent-title">AI × ART × 3D</div>
+        </div>
     </section>
 
     <!-- 10 ABOUT -->
@@ -455,10 +486,10 @@
 
     <!-- 11 CONTACT -->
     <section id="contact" style="background-color: var(--bg-light);">
-        <div class="content-block" style="text-align: center; margin: 0 auto;">
+        <div class="content-block">
             <h2>Let's create something new.</h2>
             <p>Є ідея, проєкт або просто образ, який хочеться втілити?</p>
-            <a href="#" class="btn" style="margin-bottom: 40px;">Let's talk &rarr;</a>
+            <a href="#" class="btn" style="margin-bottom: 35px;">Let's talk &rarr;</a>
             <div class="footer-tags" style="font-size: 0.9rem;">
                 AI · ART · VISUALS · 3D
             </div>
@@ -467,12 +498,12 @@
 
     <!-- 12 FOOTER -->
     <footer>
-        <img src="лого.jpg" alt="NATAIRA">
+        <img src="logo.jpg" alt="NATAIRA">
         <div class="footer-tags">
             AI · ART · VISUALS · 3D
         </div>
-        <p style="font-family: var(--font-heading); color: var(--text-muted); letter-spacing: 1px;">Art. Imagination. Technology</p>
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 20px;">© NATAIRA</p>
+        <p style="font-family: var(--font-heading); color: var(--text-muted); letter-spacing: 1.5px;">Art. Imagination. Technology</p>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 25px;">© NATAIRA</p>
     </footer>
 
 </body>
