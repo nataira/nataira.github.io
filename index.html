@@ -114,18 +114,15 @@
             margin: 0 auto;
         }
 
-        .central-symbol {
-            width: 65px;
-            height: 65px;
+        .symbol-container {
+            width: 70px;
+            height: 85px;
             margin-bottom: 25px;
         }
 
-        .central-symbol svg {
+        .symbol-container svg {
             width: 100%;
             height: 100%;
-            stroke: #d4c2a5;
-            fill: none;
-            stroke-width: 1.1;
         }
 
         h1 {
@@ -205,13 +202,27 @@
     </header>
 
     <main>
-        <div class="central-symbol">
-            <svg viewBox="0 0 100 100">
-                <line x1="50" y1="0" x2="50" y2="20"/>
-                <path d="M 50 25 A 25 25 0 1 0 75 50 A 18 18 0 1 0 57 68 A 10 10 0 1 0 50 50" />
-                <circle cx="50" cy="50" r="2.5" fill="#d4c2a5"/>
-                <line x1="50" y1="80" x2="50" y2="100"/>
-                <circle cx="50" cy="92" r="3"/>
+        <div class="symbol-container">
+            <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                <!-- Верхня вісь із крапками -->
+                <line x1="100" y1="10" x2="100" y2="35" stroke="#d4be9c" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="100" cy="18" r="2.5" fill="#d4be9c"/>
+                <circle cx="100" cy="30" r="1.5" fill="#d4be9c"/>
+
+                <!-- Зовнішнє коло -->
+                <circle cx="100" cy="120" r="70" stroke="#d4be9c" stroke-width="1.8" fill="none" opacity="0.85"/>
+
+                <!-- Внутрішня спіральна лінія -->
+                <path d="M 100 50 C 120 70, 140 90, 130 120 C 120 150, 80 150, 75 120 C 70 95, 115 95, 115 120 C 115 132, 90 132, 90 120 C 90 110, 105 110, 100 120" 
+                      stroke="#d4be9c" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+                <!-- Центральна крапка -->
+                <circle cx="100" cy="120" r="3.5" fill="#d4be9c"/>
+
+                <!-- Нижня вісь із крапками -->
+                <line x1="100" y1="205" x2="100" y2="230" stroke="#d4be9c" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="100" cy="210" r="1.5" fill="#d4be9c"/>
+                <circle cx="100" cy="222" r="2.5" fill="#d4be9c"/>
             </svg>
         </div>
 
