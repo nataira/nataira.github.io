@@ -127,7 +127,6 @@
         /* СЕКЦІЇ */
         section {
             padding: 120px 8% 70px;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -137,6 +136,7 @@
 
         /* СЕКЦІЯ HOME */
         #home {
+            min-height: 100vh;
             background-image: url('1.jpg');
             background-size: cover;
             background-position: center;
@@ -190,7 +190,7 @@
             margin-bottom: 20px;
         }
 
-        /* ГАЛЕРЕЯ */
+        /* ГАЛЕРЕЯ ТА ІНШІ БЛОКИ */
         h2 {
             font-size: 2.4rem;
             color: var(--accent);
@@ -340,7 +340,7 @@
             font-weight: 300;
         }
 
-        /* WHERE DISCIPLINES MEET (По центру, збільшений та гарний текст) */
+        /* WHERE DISCIPLINES MEET */
         .extra-section-box {
             background: rgba(45, 41, 35, 0.5);
             border: 1px solid var(--border-color);
@@ -542,9 +542,9 @@
         </div>
     </section>
 
-    <!-- ГАЛЕРЕЯ РОБІТ ТА ДИСЦИПЛІНИ -->
+    <!-- ЄДИНА СЕКЦІЯ PORTFOLIO (WORKS + WHERE DISCIPLINES MEET + ABOUT + CONTACT) -->
     <section id="portfolio">
-        <div class="content-block" style="max-width: 1150px;">
+        <div class="content-block" style="max-width: 1150px; width: 100%;">
             <h2>Works</h2>
             <p class="sub-heading">Фото та відео робіт. Кожен візуал має власну назву та короткий опис.</p>
             
@@ -563,7 +563,7 @@
                 <p id="category-desc">Повний простір робіт NATAIRA — від генеративного AI-мистецтва до авторських полотен та 3D-візуалізації.</p>
             </div>
             
-            <!-- СІТКА РОБІТ (шляхи в папках ai/, art/, visuals/, 3d/) -->
+            <!-- СІТКА РОБІТ -->
             <div class="gallery">
 
                 <!-- AI -->
@@ -795,7 +795,7 @@
 
             </div>
 
-            <!-- WHERE DISCIPLINES MEET (По центру, збільшений та гарний текст) -->
+            <!-- WHERE DISCIPLINES MEET -->
             <div class="extra-section-box">
                 <h3>Where disciplines meet</h3>
                 <div class="disciplines-text">
@@ -806,28 +806,25 @@
                 </div>
                 <div class="tag-line" style="margin-bottom: 0;">AI × ART × 3D</div>
             </div>
-        </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about" style="background-color: var(--bg-light); width: 100%;">
-        <div class="content-block">
-            <h2>About</h2>
-            <p class="about-intro" style="margin-top: 20px;">
-                Я працюю на перетині творчості та технологій, поєднуючи AI, цифрові інструменти, 3D та традиційне мистецтво. 
-                Мені цікаві не просто нові інструменти, а те, що з їхньою допомогою можна створити.
-            </p>
-        </div>
-    </section>
+            <!-- ABOUT БЛОК (В ОБ'ЄДНАНІЙ СЕКЦІЇ) -->
+            <div id="about" style="margin-top: 70px; width: 100%;">
+                <h2>About</h2>
+                <p class="about-intro" style="margin: 20px auto 0 auto;">
+                    Я працюю на перетині творчості та технологій, поєднуючи AI, цифрові інструменти, 3D та традиційне мистецтво. 
+                    Мені цікаві не просто нові інструменти, а те, що з їхньою допомогою можна створити.
+                </p>
+            </div>
 
-    <!-- CONTACT -->
-    <section id="contact" style="width: 100%;">
-        <div class="content-block">
-            <h2>Let's create something new.</h2>
-            <p class="about-intro" style="margin: 15px auto 25px;">
-                Є ідея, проєкт або просто образ, який хочеться втілити?
-            </p>
-            <a href="mailto:contact@nataira.com" class="btn">Let's talk &rarr;</a>
+            <!-- CONTACT БЛОК (В ОБ'ЄДНАНІЙ СЕКЦІЇ) -->
+            <div id="contact" style="margin-top: 70px; width: 100%;">
+                <h2>Let's create something new.</h2>
+                <p class="about-intro" style="margin: 15px auto 25px auto;">
+                    Є ідея, проєкт або просто образ, який хочеться втілити?
+                </p>
+                <a href="mailto:contact@nataira.com" class="btn">Let's talk &rarr;</a>
+            </div>
+
         </div>
     </section>
 
