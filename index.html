@@ -54,7 +54,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(35, 32, 27, 0.95);
+            background: rgba(35, 32, 27, 0.92);
             backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
@@ -116,6 +116,8 @@
             text-transform: uppercase;
             transition: all 0.3s ease;
             cursor: pointer;
+            background: rgba(35, 32, 27, 0.6);
+            backdrop-filter: blur(4px);
         }
 
         .btn:hover {
@@ -124,7 +126,7 @@
             box-shadow: 0 0 15px rgba(212, 139, 94, 0.4);
         }
 
-        /* СЕКЦІЇ */
+        /* СЕКЦІЇ ЗІ ЯСКРАВИМИ ФОНАМИ */
         section {
             padding: 130px 8% 80px;
             display: flex;
@@ -132,23 +134,22 @@
             justify-content: center;
             align-items: center;
             position: relative;
-        }
-
-        /* СЕКЦІЯ HOME */
-        #home {
-            min-height: 100vh;
-            background-image: url('1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            position: relative;
+        }
+
+        /* 1. Секція HOME — фон 1.jpg (зменшене затемнення для яскравості) */
+        #home {
+            min-height: 100vh;
+            background-image: url('1.jpg');
         }
 
         #home::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(30, 26, 21, 0.82);
+            background: rgba(25, 22, 18, 0.45);
             z-index: 1;
         }
 
@@ -163,7 +164,7 @@
             height: auto;
             margin: 0 auto 20px auto;
             display: block;
-            filter: drop-shadow(0 0 20px rgba(212, 139, 94, 0.4));
+            filter: drop-shadow(0 0 20px rgba(212, 139, 94, 0.6));
         }
 
         #home h1 {
@@ -171,6 +172,7 @@
             margin-bottom: 20px;
             color: var(--accent);
             line-height: 1.25;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
         }
 
         #home .about-intro {
@@ -180,6 +182,7 @@
             color: var(--text-main);
             max-width: 900px;
             line-height: 1.8;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
         }
 
         #home .tag-line {
@@ -188,6 +191,26 @@
             letter-spacing: 4px;
             font-size: 1.2rem;
             margin-bottom: 25px;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        /* 2. Секція PORTFOLIO — фон 2.jpg (зменшене затемнення) */
+        #portfolio {
+            background-image: url('2.jpg');
+            position: relative;
+        }
+
+        #portfolio::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(25, 22, 18, 0.5);
+            z-index: 1;
+        }
+
+        #portfolio > * {
+            position: relative;
+            z-index: 2;
         }
 
         /* ГАЛЕРЕЯ ТА ІНШІ БЛОКИ */
@@ -196,6 +219,7 @@
             color: var(--accent);
             letter-spacing: 2px;
             margin-bottom: 25px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
         }
 
         .filters {
@@ -206,6 +230,10 @@
             padding-bottom: 12px;
             justify-content: center;
             flex-wrap: wrap;
+            background: rgba(35, 32, 27, 0.5);
+            backdrop-filter: blur(6px);
+            padding-top: 10px;
+            border-radius: 8px;
         }
         
         .filter-btn {
@@ -224,13 +252,13 @@
         }
 
         .category-info-box {
-            background: rgba(45, 41, 35, 0.75);
+            background: rgba(35, 31, 26, 0.75);
             border: 1px solid var(--border-color);
             border-radius: 10px;
             padding: 25px 30px;
             margin-bottom: 35px;
             text-align: center;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
 
@@ -261,7 +289,7 @@
         }
 
         .gallery-item {
-            background: var(--bg-light);
+            background: rgba(45, 41, 35, 0.85);
             border: 1px solid var(--border-color);
             border-radius: 10px;
             overflow: hidden;
@@ -270,12 +298,13 @@
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             text-align: left;
+            backdrop-filter: blur(6px);
         }
 
         .gallery-item:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
-            box-shadow: 0 10px 25px rgba(212, 139, 94, 0.2);
+            box-shadow: 0 10px 25px rgba(212, 139, 94, 0.3);
         }
 
         .gallery-img-wrap {
@@ -291,7 +320,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            filter: saturate(75%) brightness(96%) sepia(18%);
+            filter: saturate(85%) brightness(98%) sepia(10%);
             transition: filter 0.5s ease, transform 0.5s ease;
         }
 
@@ -305,7 +334,7 @@
             display: flex;
             flex-direction: column;
             flex-grow: 1;
-            background: rgba(45, 41, 35, 0.6);
+            background: rgba(35, 31, 26, 0.7);
         }
 
         .card-tag {
@@ -325,7 +354,7 @@
         }
 
         .extra-section-box {
-            background: rgba(45, 41, 35, 0.5);
+            background: rgba(35, 31, 26, 0.8);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 50px 40px;
@@ -333,6 +362,7 @@
             width: 100%;
             max-width: 1000px;
             text-align: center;
+            backdrop-filter: blur(8px);
         }
 
         .extra-section-box h3 {
@@ -348,6 +378,34 @@
             font-weight: 300;
             color: var(--text-main);
             margin-bottom: 25px;
+        }
+
+        /* 3. Секція ABOUT — фон 3.jpg (зменшене затемнення) */
+        #about-section {
+            background-image: url('3.jpg');
+            position: relative;
+            width: 100%;
+            margin-top: 60px;
+            padding: 100px 8%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        #about-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(25, 22, 18, 0.5);
+            z-index: 1;
+            border-radius: 12px;
+        }
+
+        #about-section > * {
+            position: relative;
+            z-index: 2;
         }
 
         /* ФУТЕР */
@@ -478,8 +536,7 @@
             #home h1 { font-size: 2.3rem; }
             #home .about-intro { font-size: 1.1rem; }
             h2 { font-size: 2rem; }
-            section { padding: 110px 5% 50px; }
-            .gallery { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+            section { padding: 110px 5% 50px; background-attachment: scroll; }
         }
     </style>
 </head>
@@ -503,7 +560,7 @@
         </nav>
     </header>
 
-    <!-- HOME -->
+    <!-- HOME (Яскравий фон: 1.jpg) -->
     <section id="home">
         <div class="content-block">
             <img src="logo.png" alt="NATAIRA Brand Logo" class="hero-brand-logo">
@@ -519,7 +576,7 @@
         </div>
     </section>
 
-    <!-- ЄДИНА СЕКЦІЯ PORTFOLIO -->
+    <!-- PORTFOLIO (Яскравий фон: 2.jpg) -->
     <section id="portfolio">
         <div class="content-block" style="max-width: 1150px; width: 100%;">
             <h2>Works</h2>
@@ -539,17 +596,17 @@
                 <p id="category-desc">Повний простір робіт NATAIRA — від генеративного AI-мистецтва до авторських полотен та 3D-візуалізації.</p>
             </div>
             
-            <!-- СІТКА РОБІТ (Шляхи напряму до кореневих файлів звітів) -->
+            <!-- СІТКА РОБІТ -->
             <div class="gallery">
 
-                <!-- AI (Посилаються на 1.jpg, 2.jpg, 3.jpg тощо згідно вашого репозиторію) -->
+                <!-- AI -->
                 <div class="gallery-item" data-category="ai">
                     <div class="gallery-img-wrap">
                         <img src="" data-src="1.jpg" alt="AI Work 1" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">AI Generations</span>
-                        <p class="card-desc"></p>
+                        <p class="card-desc" data-filename="1.jpg"></p>
                     </div>
                 </div>
 
@@ -559,7 +616,7 @@
                     </div>
                     <div class="card-body">
                         <span class="card-tag">AI Generations</span>
-                        <p class="card-desc"></p>
+                        <p class="card-desc" data-filename="2.jpg"></p>
                     </div>
                 </div>
 
@@ -569,19 +626,19 @@
                     </div>
                     <div class="card-body">
                         <span class="card-tag">AI Generations</span>
-                        <p class="card-desc"></p>
+                        <p class="card-desc" data-filename="3.jpg"></p>
                     </div>
                 </div>
 
 
-                <!-- ART (Використовують реальні файли art-1.jpg, art-2.jpg тощо) -->
+                <!-- ART -->
                 <div class="gallery-item" data-category="art">
                     <div class="gallery-img-wrap">
                         <img src="" data-src="art-1.jpg" alt="Art Work 1" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
-                        <p class="card-desc"></p>
+                        <p class="card-desc" data-filename="art-1.jpg"></p>
                     </div>
                 </div>
 
@@ -591,7 +648,7 @@
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
-                        <p class="card-desc"></p>
+                        <p class="card-desc" data-filename="art-2.jpg"></p>
                     </div>
                 </div>
 
@@ -601,7 +658,7 @@
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
-                        <p class="card-desc"></p>
+                        <p class="card-desc" data-filename="art-3.jpg"></p>
                     </div>
                 </div>
 
@@ -611,7 +668,7 @@
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
-                        <p class="card-desc"></p>
+                        <p class="card-desc" data-filename="art-4.jpg"></p>
                     </div>
                 </div>
 
@@ -621,30 +678,30 @@
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
-                        <p class="card-desc"></p>
+                        <p class="card-desc" data-filename="art-5.jpg"></p>
                     </div>
                 </div>
 
 
-                <!-- VISUALS (Якщо будуть файли visual-1.jpg тощо, просто змініть назву у data-src) -->
+                <!-- VISUALS -->
                 <div class="gallery-item" data-category="visuals">
                     <div class="gallery-img-wrap">
                         <img src="" data-src="1.jpg" alt="Visual 1" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Visuals</span>
-                        <p class="card-desc"></p>
+                        <p class="card-desc" data-filename="visual-1.jpg"></p>
                     </div>
                 </div>
 
-                <!-- 3D (Якщо будуть файли 3d-1.jpg тощо, змініть назву у data-src) -->
+                <!-- 3D -->
                 <div class="gallery-item" data-category="3d">
                     <div class="gallery-img-wrap">
                         <img src="" data-src="2.jpg" alt="3D Work 1" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">3D Modeling</span>
-                        <p class="card-desc"></p>
+                        <p class="card-desc" data-filename="3d-1.jpg"></p>
                     </div>
                 </div>
 
@@ -662,12 +719,14 @@
                 <div class="tag-line" style="margin-bottom: 0; color: var(--accent); font-family: var(--font-heading); letter-spacing: 3px;">AI × ART × 3D</div>
             </div>
 
-            <!-- ABOUT БЛОК -->
-            <div id="about" style="margin-top: 80px; width: 100%;">
-                <h2>About</h2>
-                <p class="about-intro" style="margin: 20px auto 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--text-main); max-width: 850px; font-weight: 300;">
-                    Я працюю на перетині творчості та технологій, поєднуючи AI, цифрові інструменти, 3D та традиційне мистецтво. Мені цікаві не просто нові інструменти, а те, що з їхньою допомогою можна створити.
-                </p>
+            <!-- ABOUT БЛОК (Яскравий фон: 3.jpg) -->
+            <div id="about" style="width: 100%;">
+                <div id="about-section">
+                    <h2>About</h2>
+                    <p class="about-intro" style="margin: 20px auto 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--text-main); max-width: 850px; font-weight: 300;">
+                        Я працюю на перетині творчості та технологій, поєднуючи AI, цифрові інструменти, 3D та традиційне мистецтво. Мені цікаві не просто нові інструменти, а те, що з їхньою допомогою можна створити.
+                    </p>
+                </div>
             </div>
 
             <!-- CONTACT БЛОК -->
@@ -720,7 +779,7 @@
 
     <!-- СКРИПТИ -->
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("DOMContentLoaded", async () => {
             const images = document.querySelectorAll('.gallery-img-wrap img');
             images.forEach(img => {
                 const rawSrc = img.getAttribute('data-src');
@@ -728,6 +787,37 @@
                     img.src = encodeURI(rawSrc);
                 }
             });
+
+            try {
+                const response = await fetch('captions.txt');
+                if (response.ok) {
+                    const text = await response.text();
+                    const lines = text.split('\n');
+                    const captionsMap = {};
+
+                    lines.forEach(line => {
+                        const parts = line.split(/—|-/);
+                        if (parts.length >= 2) {
+                            const fileName = parts[0].trim();
+                            const captionText = parts.slice(1).join('—').trim();
+                            if (fileName && captionText) {
+                                captionsMap[fileName] = captionText;
+                            }
+                        }
+                    });
+
+                    document.querySelectorAll('.card-desc[data-filename]').forEach(descEl => {
+                        const fileName = descEl.getAttribute('data-filename');
+                        if (captionsMap[fileName]) {
+                            descEl.textContent = captionsMap[fileName];
+                        } else {
+                            descEl.textContent = '';
+                        }
+                    });
+                }
+            } catch (error) {
+                console.log("Файл captions.txt не знайдено або сталася помилка читання.");
+            }
         });
 
         const categoryData = {
