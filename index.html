@@ -139,7 +139,7 @@
             background-attachment: fixed;
         }
 
-        /* 1. Секція HOME — фон 1.jpg (зменшене затемнення для яскравості) */
+        /* 1. Секція HOME — фон 1.jpg */
         #home {
             min-height: 100vh;
             background-image: url('1.jpg');
@@ -194,7 +194,7 @@
             text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
         }
 
-        /* 2. Секція PORTFOLIO — фон 2.jpg (зменшене затемнення) */
+        /* 2. Секція PORTFOLIO — фон 2.jpg */
         #portfolio {
             background-image: url('2.jpg');
             position: relative;
@@ -380,7 +380,7 @@
             margin-bottom: 25px;
         }
 
-        /* 3. Секція ABOUT — фон 3.jpg (зменшене затемнення) */
+        /* 3. Секція ABOUT — фон 3.jpg */
         #about-section {
             background-image: url('3.jpg');
             position: relative;
@@ -560,7 +560,7 @@
         </nav>
     </header>
 
-    <!-- HOME (Яскравий фон: 1.jpg) -->
+    <!-- HOME -->
     <section id="home">
         <div class="content-block">
             <img src="logo.png" alt="NATAIRA Brand Logo" class="hero-brand-logo">
@@ -576,7 +576,7 @@
         </div>
     </section>
 
-    <!-- PORTFOLIO (Яскравий фон: 2.jpg) -->
+    <!-- PORTFOLIO -->
     <section id="portfolio">
         <div class="content-block" style="max-width: 1150px; width: 100%;">
             <h2>Works</h2>
@@ -590,7 +590,6 @@
                 <span class="filter-btn" data-filter="3d">3D</span>
             </div>
 
-            <!-- БЛОК ДИНАМІЧНОГО ОПИСУ КАТЕГОРІЇ -->
             <div id="category-info" class="category-info-box">
                 <h3 id="category-title">ALL WORKS</h3>
                 <p id="category-desc">Повний простір робіт NATAIRA — від генеративного AI-мистецтва до авторських полотен та 3D-візуалізації.</p>
@@ -599,39 +598,7 @@
             <!-- СІТКА РОБІТ -->
             <div class="gallery">
 
-                <!-- AI -->
-                <div class="gallery-item" data-category="ai">
-                    <div class="gallery-img-wrap">
-                        <img src="" data-src="1.jpg" alt="AI Work 1" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">AI Generations</span>
-                        <p class="card-desc" data-filename="1.jpg"></p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="ai">
-                    <div class="gallery-img-wrap">
-                        <img src="" data-src="2.jpg" alt="AI Work 2" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">AI Generations</span>
-                        <p class="card-desc" data-filename="2.jpg"></p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="ai">
-                    <div class="gallery-img-wrap">
-                        <img src="" data-src="3.jpg" alt="AI Work 3" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">AI Generations</span>
-                        <p class="card-desc" data-filename="3.jpg"></p>
-                    </div>
-                </div>
-
-
-                <!-- ART -->
+                <!-- ART (5 робіт з вашими підписами) -->
                 <div class="gallery-item" data-category="art">
                     <div class="gallery-img-wrap">
                         <img src="" data-src="art-1.jpg" alt="Art Work 1" loading="lazy">
@@ -682,29 +649,6 @@
                     </div>
                 </div>
 
-
-                <!-- VISUALS -->
-                <div class="gallery-item" data-category="visuals">
-                    <div class="gallery-img-wrap">
-                        <img src="" data-src="1.jpg" alt="Visual 1" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">Visuals</span>
-                        <p class="card-desc" data-filename="visual-1.jpg"></p>
-                    </div>
-                </div>
-
-                <!-- 3D -->
-                <div class="gallery-item" data-category="3d">
-                    <div class="gallery-img-wrap">
-                        <img src="" data-src="2.jpg" alt="3D Work 1" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">3D Modeling</span>
-                        <p class="card-desc" data-filename="3d-1.jpg"></p>
-                    </div>
-                </div>
-
             </div>
 
             <!-- WHERE DISCIPLINES MEET -->
@@ -719,7 +663,7 @@
                 <div class="tag-line" style="margin-bottom: 0; color: var(--accent); font-family: var(--font-heading); letter-spacing: 3px;">AI × ART × 3D</div>
             </div>
 
-            <!-- ABOUT БЛОК (Яскравий фон: 3.jpg) -->
+            <!-- ABOUT БЛОК -->
             <div id="about" style="width: 100%;">
                 <div id="about-section">
                     <h2>About</h2>
@@ -765,7 +709,7 @@
         </div>
     </footer>
 
-    <!-- МОДАЛЬНЕ ВІКНО ПЕРЕГЛЯДУ -->
+    <!-- МОДАЛЬНЕ ВІКНО -->
     <div id="imageModal" class="modal">
         <div class="modal-container">
             <span class="modal-close" id="modalClose">&times;</span>
