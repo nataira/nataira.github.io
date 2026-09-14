@@ -134,7 +134,7 @@
             position: relative;
         }
 
-        /* СЕКЦІЯ HOME (ЗБІЛЬШЕНИЙ ТЕКСТ) */
+        /* СЕКЦІЯ HOME */
         #home {
             min-height: 100vh;
             background-image: url('1.jpg');
@@ -223,7 +223,6 @@
             border-bottom: 2px solid var(--accent);
         }
 
-        /* Блок опису активної категорії */
         .category-info-box {
             background: rgba(45, 41, 35, 0.75);
             border: 1px solid var(--border-color);
@@ -301,7 +300,6 @@
             transform: scale(1.06);
         }
 
-        /* Картка під фото */
         .card-body {
             padding: 16px;
             display: flex;
@@ -315,16 +313,8 @@
             text-transform: uppercase;
             letter-spacing: 1.2px;
             color: var(--accent);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             font-weight: 600;
-        }
-
-        .card-title {
-            font-family: var(--font-heading);
-            font-size: 1.05rem;
-            color: var(--text-main);
-            margin-bottom: 6px;
-            line-height: 1.3;
         }
 
         .card-desc {
@@ -334,7 +324,6 @@
             font-weight: 300;
         }
 
-        /* WHERE DISCIPLINES MEET */
         .extra-section-box {
             background: rgba(45, 41, 35, 0.5);
             border: 1px solid var(--border-color);
@@ -454,13 +443,6 @@
             margin-bottom: 4px;
         }
 
-        .modal-title {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            color: var(--text-main);
-            margin-bottom: 8px;
-        }
-
         .modal-caption {
             color: var(--text-muted);
             font-size: 0.95rem;
@@ -506,7 +488,7 @@
     <!-- НАВІГАЦІЯ -->
     <header>
         <a href="#home" class="header-logo">
-            <img src="./logo.png" alt="NATAIRA Emblem & Logo">
+            <img src="logo.png" alt="NATAIRA Emblem & Logo">
         </a>
         <nav>
             <ul class="nav-links">
@@ -524,7 +506,7 @@
     <!-- HOME -->
     <section id="home">
         <div class="content-block">
-            <img src="./logo.png" alt="NATAIRA Brand Logo" class="hero-brand-logo">
+            <img src="logo.png" alt="NATAIRA Brand Logo" class="hero-brand-logo">
             <h1>Мистецтво. Уява. Технології.</h1>
             
             <p class="about-intro">
@@ -537,7 +519,7 @@
         </div>
     </section>
 
-    <!-- ЄДИНА СЕКЦІЯ PORTFOLIO (WORKS + WHERE DISCIPLINES MEET + ABOUT + CONTACT) -->
+    <!-- ЄДИНА СЕКЦІЯ PORTFOLIO -->
     <section id="portfolio">
         <div class="content-block" style="max-width: 1150px; width: 100%;">
             <h2>Works</h2>
@@ -557,233 +539,112 @@
                 <p id="category-desc">Повний простір робіт NATAIRA — від генеративного AI-мистецтва до авторських полотен та 3D-візуалізації.</p>
             </div>
             
-            <!-- СІТКА РОБІТ -->
+            <!-- СІТКА РОБІТ (Шляхи напряму до кореневих файлів звітів) -->
             <div class="gallery">
 
-                <!-- AI -->
+                <!-- AI (Посилаються на 1.jpg, 2.jpg, 3.jpg тощо згідно вашого репозиторію) -->
                 <div class="gallery-item" data-category="ai">
                     <div class="gallery-img-wrap">
-                        <img src="./ai/ai-1.jpg" alt="ai-1.jpg" loading="lazy">
+                        <img src="" data-src="1.jpg" alt="AI Work 1" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">AI Generations</span>
-                        <h3 class="card-title">ai-1.jpg</h3>
-                        <p class="card-desc">Концепт комерційного візуалу з використанням Midjourney та генеративних інструментів.</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="ai">
-                    <div class="gallery-img-wrap">
-                        <img src="./ai/ai-2.jpg" alt="ai-2.jpg" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">AI Generations</span>
-                        <h3 class="card-title">ai-2.jpg</h3>
-                        <p class="card-desc">Генерація цифрового персонажа з витонченою деталізацією та кіносвітлом.</p>
+                        <p class="card-desc"></p>
                     </div>
                 </div>
 
                 <div class="gallery-item" data-category="ai">
                     <div class="gallery-img-wrap">
-                        <img src="./ai/ai-3.jpg" alt="ai-3.jpg" loading="lazy">
+                        <img src="" data-src="2.jpg" alt="AI Work 2" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">AI Generations</span>
-                        <h3 class="card-title">ai-3.jpg</h3>
-                        <p class="card-desc">Кінематографічний генеративний візуал з автентичною атмосферою.</p>
+                        <p class="card-desc"></p>
                     </div>
                 </div>
 
                 <div class="gallery-item" data-category="ai">
                     <div class="gallery-img-wrap">
-                        <img src="./ai/ai-4.jpg" alt="ai-4.jpg" loading="lazy">
+                        <img src="" data-src="3.jpg" alt="AI Work 3" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">AI Generations</span>
-                        <h3 class="card-title">ai-4.jpg</h3>
-                        <p class="card-desc">Футуристичне поєднання органічних форм та світлових акцентів.</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="ai">
-                    <div class="gallery-img-wrap">
-                        <img src="./ai/ai-5.jpg" alt="ai-5.jpg" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">AI Generations</span>
-                        <h3 class="card-title">ai-5.jpg</h3>
-                        <p class="card-desc">Естетичний концепт з м'яким розсіяним світлом для б'юті-кампанії.</p>
+                        <p class="card-desc"></p>
                     </div>
                 </div>
 
 
-                <!-- ART -->
+                <!-- ART (Використовують реальні файли art-1.jpg, art-2.jpg тощо) -->
                 <div class="gallery-item" data-category="art">
                     <div class="gallery-img-wrap">
-                        <img src="./art/art-1.jpg" alt="art-1.jpg" loading="lazy">
+                        <img src="" data-src="art-1.jpg" alt="Art Work 1" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
-                        <h3 class="card-title">art-1.jpg</h3>
-                        <p class="card-desc">Авторський етно-символ. Графіка, крапковий розпис і тепла енергетика традиційного оберега.</p>
+                        <p class="card-desc"></p>
                     </div>
                 </div>
 
                 <div class="gallery-item" data-category="art">
                     <div class="gallery-img-wrap">
-                        <img src="./art/art-2.jpg" alt="art-2.jpg" loading="lazy">
+                        <img src="" data-src="art-2.jpg" alt="Art Work 2" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
-                        <h3 class="card-title">art-2.jpg</h3>
-                        <p class="card-desc">Геометрія сонця. Вітражне переплетення ліній та яскраві пелюстки, що акумулюють світло.</p>
+                        <p class="card-desc"></p>
                     </div>
                 </div>
 
                 <div class="gallery-item" data-category="art">
                     <div class="gallery-img-wrap">
-                        <img src="./art/art-3.jpg" alt="art-3.jpg" loading="lazy">
+                        <img src="" data-src="art-3.jpg" alt="Art Work 3" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
-                        <h3 class="card-title">art-3.jpg</h3>
-                        <p class="card-desc">Жива емоція та щирий погляд. Пухнаста радість і вірність, втілена у м'яких мазках.</p>
+                        <p class="card-desc"></p>
                     </div>
                 </div>
 
                 <div class="gallery-item" data-category="art">
                     <div class="gallery-img-wrap">
-                        <img src="./art/art-4.jpg" alt="art-4.jpg" loading="lazy">
+                        <img src="" data-src="art-4.jpg" alt="Art Work 4" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
-                        <h3 class="card-title">art-4.jpg</h3>
-                        <p class="card-desc">Тиха коляда над засніженим селом. Різдвяна зоря, затишок українських хат і передчуття зимового дива.</p>
+                        <p class="card-desc"></p>
                     </div>
                 </div>
 
                 <div class="gallery-item" data-category="art">
                     <div class="gallery-img-wrap">
-                        <img src="./art/art-5.jpg" alt="art-5.jpg" loading="lazy">
+                        <img src="" data-src="art-5.jpg" alt="Art Work 5" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Art & Painting</span>
-                        <h3 class="card-title">art-5.jpg</h3>
-                        <p class="card-desc">Подих рідного поля. Палахкотливий вогонь маків і глибина волошок у барвистому літньому різнотрав'ї.</p>
+                        <p class="card-desc"></p>
                     </div>
                 </div>
 
 
-                <!-- VISUALS -->
+                <!-- VISUALS (Якщо будуть файли visual-1.jpg тощо, просто змініть назву у data-src) -->
                 <div class="gallery-item" data-category="visuals">
                     <div class="gallery-img-wrap">
-                        <img src="./visuals/visual-1.jpg" alt="visual-1.jpg" loading="lazy">
+                        <img src="" data-src="1.jpg" alt="Visual 1" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">Visuals</span>
-                        <h3 class="card-title">visual-1.jpg</h3>
-                        <p class="card-desc">Цифровий візуальний концепт для передачі настрою та ідеї.</p>
+                        <p class="card-desc"></p>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="visuals">
-                    <div class="gallery-img-wrap">
-                        <img src="./visuals/visual-2.jpg" alt="visual-2.jpg" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">Visuals</span>
-                        <h3 class="card-title">visual-2.jpg</h3>
-                        <p class="card-desc">Експериментальна розробка візуального стилю та колористики.</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="visuals">
-                    <div class="gallery-img-wrap">
-                        <img src="./visuals/visual-3.jpg" alt="visual-3.jpg" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">Visuals</span>
-                        <h3 class="card-title">visual-3.jpg</h3>
-                        <p class="card-desc">Концептуальний підбір факторів та естетичне фокусування.</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="visuals">
-                    <div class="gallery-img-wrap">
-                        <img src="./visuals/visual-4.jpg" alt="visual-4.jpg" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">Visuals</span>
-                        <h3 class="card-title">visual-4.jpg</h3>
-                        <p class="card-desc">Мінімалістична візуальна розробка з акцентом на форму.</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="visuals">
-                    <div class="gallery-img-wrap">
-                        <img src="./visuals/visual-5.jpg" alt="visual-5.jpg" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">Visuals</span>
-                        <h3 class="card-title">visual-5.jpg</h3>
-                        <p class="card-desc">Графічно-візуальний експеримент з текстурами.</p>
-                    </div>
-                </div>
-
-
-                <!-- 3D -->
+                <!-- 3D (Якщо будуть файли 3d-1.jpg тощо, змініть назву у data-src) -->
                 <div class="gallery-item" data-category="3d">
                     <div class="gallery-img-wrap">
-                        <img src="./3d/3d-1.jpg" alt="3d-1.jpg" loading="lazy">
+                        <img src="" data-src="2.jpg" alt="3D Work 1" loading="lazy">
                     </div>
                     <div class="card-body">
                         <span class="card-tag">3D Modeling</span>
-                        <h3 class="card-title">3d-1.jpg</h3>
-                        <p class="card-desc">Візуалізація простору у 3ds Max та Corona Renderer.</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="3d">
-                    <div class="gallery-img-wrap">
-                        <img src="./3d/3d-2.jpg" alt="3d-2.jpg" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">3D Modeling</span>
-                        <h3 class="card-title">3d-2.jpg</h3>
-                        <p class="card-desc">Дослідження матеріальності, форми та точного освітлення.</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="3d">
-                    <div class="gallery-img-wrap">
-                        <img src="./3d/3d-3.jpg" alt="3d-3.jpg" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">3D Modeling</span>
-                        <h3 class="card-title">3d-3.jpg</h3>
-                        <p class="card-desc">3D-простір з опрацюванням атмосфери й масштабу.</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="3d">
-                    <div class="gallery-img-wrap">
-                        <img src="./3d/3d-4.jpg" alt="3d-4.jpg" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">3D Modeling</span>
-                        <h3 class="card-title">3d-4.jpg</h3>
-                        <p class="card-desc">Моделювання складної геометрії та текстильних фактур.</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="3d">
-                    <div class="gallery-img-wrap">
-                        <img src="./3d/3d-5.jpg" alt="3d-5.jpg" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">3D Modeling</span>
-                        <h3 class="card-title">3d-5.jpg</h3>
-                        <p class="card-desc">Студійна предметна 3D-візуалізація з акцентним світлом.</p>
+                        <p class="card-desc"></p>
                     </div>
                 </div>
 
@@ -823,7 +684,7 @@
 
     <!-- ФУТЕР -->
     <footer>
-        <img src="./logo.png" alt="NATAIRA" class="footer-logo-img">
+        <img src="logo.png" alt="NATAIRA" class="footer-logo-img">
         <div style="font-family: var(--font-heading); color: var(--accent); letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 6px;">
             NATAIRA
         </div>
@@ -852,7 +713,6 @@
             <img class="modal-content" id="modalImg" alt="Enlarged Work">
             <div class="modal-info">
                 <div class="modal-tag" id="modalTag"></div>
-                <div class="modal-title" id="modalTitle"></div>
                 <div class="modal-caption" id="modalCaption"></div>
             </div>
         </div>
@@ -860,6 +720,16 @@
 
     <!-- СКРИПТИ -->
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const images = document.querySelectorAll('.gallery-img-wrap img');
+            images.forEach(img => {
+                const rawSrc = img.getAttribute('data-src');
+                if (rawSrc) {
+                    img.src = encodeURI(rawSrc);
+                }
+            });
+        });
+
         const categoryData = {
             'all': {
                 title: 'ALL WORKS',
@@ -930,7 +800,6 @@
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
         const modalTag = document.getElementById('modalTag');
-        const modalTitle = document.getElementById('modalTitle');
         const modalCaption = document.getElementById('modalCaption');
         const modalClose = document.getElementById('modalClose');
 
@@ -938,13 +807,11 @@
             item.addEventListener('click', () => {
                 const img = item.querySelector('img');
                 const tag = item.querySelector('.card-tag');
-                const title = item.querySelector('.card-title');
                 const desc = item.querySelector('.card-desc');
                 
                 modalImg.src = img.src;
                 modalImg.alt = img.alt;
                 modalTag.textContent = tag ? tag.textContent : '';
-                modalTitle.textContent = title ? title.textContent : '';
                 modalCaption.textContent = desc ? desc.textContent : '';
                 
                 modal.classList.add('show');
