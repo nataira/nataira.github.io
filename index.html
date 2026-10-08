@@ -3,142 +3,348 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NATAIRA — Візуальні світи від пензля до нейромережі</title>
-<meta name="description" content="NATAIRA — AI-генерації фото та відео, живопис власними руками та 3D-візуалізація інтер'єрів в одному портфоліо.">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/css/style.css">
+<title>NATAIRA — Мистецтво. Уява. Технології.</title>
+<meta name="description" content="NATAIRA — авторський простір на перетині AI, ART та 3D. AI-відео та фотосесії, картини на замовлення, 3D-візуалізація інтер'єрів.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#0f0d06; --bg-1:#161307; --bg-2:#1c1810; --line:#3a3520;
+    --sage-dim:#4a4c37; --clay:#9c5636; --clay-bright:#b5754f; --tan:#a9825e;
+    --cream:#efe9db; --cream-dim:#b9b19c; --muted:#7d7863;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg-0); color:var(--cream); font-family:'Manrope',sans-serif; font-weight:400; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--clay-bright); outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){ *{transition-duration:.001ms !important; scroll-behavior:auto !important;} }
+  .blend{mix-blend-mode:lighten;}
+  .en{display:block; font-size:.86em; line-height:1.55; color:var(--muted); margin-top:8px; font-weight:400;}
+  h1 .en, h2 .en{font-size:.5em; font-weight:500; letter-spacing:.02em; margin-top:10px;}
+  .btn .en{display:block; font-size:.78em; margin-top:2px; color:inherit; opacity:.7;}
+  .btn{flex-direction:column; align-items:flex-start; text-align:left;}
+  .hero .btns .btn{align-items:center; text-align:center;}
+  .contact .btn{align-items:center; text-align:center;}
+  .offers span.en{display:block; font-size:12.5px; color:var(--muted); margin-top:3px;}
+  .offers b .en{font-size:12.5px; color:var(--muted);}
+  .step .en{font-size:.9em; margin-top:6px;}
+  .accent .en{margin-top:4px;}
+  .accent p{line-height:1.9;}
+  .tag .en{display:none;}
+
+  /* header */
+  header{position:sticky; top:0; z-index:50; background:rgba(15,13,6,.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 32px; max-width:1180px; margin:0 auto;}
+  .brand{display:flex; align-items:center; gap:14px;}
+  .brand .mark{height:38px; width:auto;}
+  .brand .word{height:15px; width:auto;}
+  nav.links{display:flex; gap:34px;}
+  nav.links a{font-size:13px; font-weight:500; letter-spacing:.06em; color:var(--cream-dim); transition:color .25s ease;}
+  nav.links a:hover{color:var(--clay-bright);}
+  .nav-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .nav-toggle span{width:22px; height:1.5px; background:var(--cream);}
+
+  /* hero */
+  .hero{position:relative; min-height:92vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;
+    background:linear-gradient(0deg, rgba(15,13,6,.92), rgba(15,13,6,.1) 55%), url('img/bg.jpg') center/cover no-repeat, var(--bg-0);}
+  .hero-inner{padding:60px 24px; max-width:720px;}
+  .hero-logo{width:min(300px,62vw); margin:0 auto 30px;}
+  .hero h1{font-weight:600; font-size:clamp(28px,4.6vw,46px); letter-spacing:.01em; margin:0 0 22px;}
+  .hero p{font-size:16px; color:var(--cream-dim); max-width:54ch; margin:0 auto 30px;}
+  .cat-line{font-size:13px; letter-spacing:.22em; color:var(--tan);}
+
+  /* shared */
+  section{padding:110px 0;}
+  .eyebrow-line{display:flex; align-items:center; gap:14px; margin-bottom:18px;}
+  .eyebrow-line .num{font-size:12.5px; color:var(--clay-bright); letter-spacing:.16em;}
+  .eyebrow-line .rule{flex:1; max-width:52px; height:1px; background:var(--line);}
+  h2{font-weight:600; font-size:clamp(26px,3.4vw,38px); margin:0 0 18px;}
+  .lede{color:var(--cream-dim); font-size:16px; max-width:56ch; margin:0;}
+  .tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px;}
+  .tag{font-size:12px; letter-spacing:.05em; color:var(--tan); border:1px solid var(--sage-dim); border-radius:2px; padding:7px 13px;}
+  .btns{display:flex; gap:14px; flex-wrap:wrap; margin-top:34px;}
+  .btn{display:inline-flex; align-items:center; padding:14px 28px; border-radius:999px; font-size:14px; font-weight:500; transition:all .25s ease; border:1px solid var(--clay); background:var(--clay); color:var(--cream);}
+  .btn:hover{background:var(--clay-bright); border-color:var(--clay-bright);}
+  .btn.ghost{background:transparent; border-color:var(--sage-dim); color:var(--cream-dim);}
+  .btn.ghost:hover{border-color:var(--clay-bright); color:var(--cream);}
+
+  /* service blocks */
+  .service{border-top:1px solid var(--line);}
+  .service .wrap{display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start;}
+  .service .offer-title{font-size:12.5px; letter-spacing:.16em; color:var(--clay-bright); margin-bottom:22px;}
+  .offers{list-style:none; margin:0; padding:0;}
+  .offers li{padding:20px 0; border-top:1px solid var(--line);}
+  .offers li:last-child{border-bottom:1px solid var(--line);}
+  .offers b{display:block; font-weight:600; font-size:16px; color:var(--cream); margin-bottom:4px;}
+  .offers span{font-size:14.5px; color:var(--cream-dim);}
+
+  /* selected work */
+  .work{background:var(--bg-1); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .work-head{display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:44px;}
+  .filters{display:flex; gap:10px; flex-wrap:wrap;}
+  .filter-btn{font-family:inherit; font-size:12.5px; letter-spacing:.06em; padding:9px 18px; border-radius:999px; border:1px solid var(--sage-dim); color:var(--cream-dim); background:transparent; cursor:pointer; transition:all .25s ease;}
+  .filter-btn.active, .filter-btn:hover{border-color:var(--clay-bright); color:var(--cream); background:rgba(181,117,79,.12);}
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .piece{margin:0;}
+  .piece .img{aspect-ratio:4/5; overflow:hidden; border:1px solid var(--line); background:var(--bg-2);}
+  .piece img{width:100%; height:100%; object-fit:cover; transition:transform .6s ease;}
+  .piece:hover img{transform:scale(1.03);}
+  .piece figcaption{padding:14px 2px 0; font-size:14px; line-height:1.5; color:var(--cream-dim);}
+  .piece figcaption b{display:block; font-weight:600; color:var(--cream); font-size:15px;}
+  .empty-note{grid-column:1/-1; color:var(--muted); font-size:14px; padding:12px 0;}
+
+  .experiments .wrap{max-width:720px; text-align:center;}
+  .experiments .eyebrow-line{justify-content:center;}
+  .experiments .lede{margin:0 auto;}
+
+  .process{border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(15,13,6,.82), rgba(15,13,6,.92)), url('img/hero-bg.jpg') center/cover no-repeat;}
+  .steps{display:grid; grid-template-columns:repeat(5,1fr); margin-top:52px;}
+  .step{border-left:1px solid var(--line); padding:0 22px;}
+  .step:first-child{border-left:none; padding-left:0;}
+  .step .n{font-size:12px; color:var(--clay-bright); letter-spacing:.1em; margin-bottom:12px;}
+  .step h3{font-size:15px; font-weight:600; letter-spacing:.06em; margin:0 0 8px;}
+  .step p{font-size:13.5px; color:var(--cream-dim); margin:0;}
+
+  .accent{padding:120px 0; text-align:center; background:linear-gradient(180deg, rgba(15,13,6,.7), rgba(15,13,6,.9)), url('img/bg.jpg') center/cover no-repeat; border-bottom:1px solid var(--line);}
+  .accent .wrap{max-width:680px;}
+  .accent p{color:var(--cream-dim); margin:22px 0 32px;}
+  .stamp{font-size:15px; letter-spacing:.28em; color:var(--clay-bright); font-weight:600;}
+
+  .about .wrap{max-width:720px;}
+  .about p{color:var(--cream-dim); margin:0 0 16px;}
+
+  .contact{background:var(--bg-1); border-top:1px solid var(--line);}
+  .contact .wrap{text-align:center; max-width:640px;}
+  .contact .eyebrow-line{justify-content:center;}
+  .contact .lede{margin:0 auto;}
+  .contact .btns{justify-content:center;}
+  .contact .cat-line{margin-top:44px;}
+
+  footer{padding:44px 0; border-top:1px solid var(--line);}
+  footer .wrap{display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;}
+  footer .mark{height:44px; width:auto;}
+  footer .word{height:13px; width:auto;}
+  footer .cat-line{font-size:11.5px; color:var(--muted);}
+  footer .slogan{font-size:12px; color:var(--cream-dim);}
+  footer .copy{font-size:12px; color:var(--muted);}
+
+  @media (max-width:900px){
+    nav.links{display:none;}
+    .nav-toggle{display:flex;}
+    .service .wrap{grid-template-columns:1fr; gap:36px;}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:1fr 1fr; row-gap:34px;}
+    .step{border-left:none; padding-left:0;}
+    section{padding:76px 0;}
+  }
+  @media (max-width:560px){ .grid,.steps{grid-template-columns:1fr;} .brand .word{display:none;} }
+</style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="wrap">
-    <a href="index.html" class="logo">
-      <svg class="logo-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="20" cy="20" r="13" stroke-width="1"/>
-        <circle cx="20" cy="20" r="7.5" stroke-width="1"/>
-        <path d="M20 6.5v3M20 30.5v3" stroke-width="1"/>
-        <path d="M14 20c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke-width="1" stroke-linecap="round"/>
-      </svg>
-      <span class="logo-text">NATAIRA</span>
+<header>
+  <div class="nav">
+    <a class="brand" href="#top" aria-label="NATAIRA">
+      <img class="mark blend" src="img/logo-mark.jpg" alt="">
+      <img class="word blend" src="img/logo-word.jpg" alt="NATAIRA">
     </a>
-    <nav class="main-nav">
-      <a href="ai-generations.html">AI-генерації</a>
-      <a href="art.html">Малюнки</a>
-      <a href="3d-visualization.html">3D-візуалізація</a>
-      <a href="about.html">Про мене</a>
-      <a href="contacts.html">Контакти</a>
+    <nav class="links" id="menu">
+      <a href="#top">HOME</a>
+      <a href="#work">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#experiments">EXPERIMENTS</a>
+      <a href="#contact">CONTACT</a>
     </nav>
     <button class="nav-toggle" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<section class="hero" style="background-image:linear-gradient(180deg, rgba(22,24,15,0.55), rgba(22,24,15,0.86) 60%), url('assets/img/hero-bg.png'); background-size: cover; background-position: center;">
+<!-- HERO -->
+<div id="top" class="hero">
+  <div class="hero-inner">
+    <img class="hero-logo blend" src="img/logo.jpg" alt="NATAIRA">
+    <h1>Мистецтво. Уява. Технології.<span class="en">Art. Imagination. Technology.</span></h1>
+    <p>NATAIRA — простір, де образи, ідеї та експерименти зустрічаються з технологіями. Тут матеріальне переходить у цифрове, знайоме набуває нової форми, а уява стає точкою відліку для нових світів.<span class="en">NATAIRA is a space where images, ideas and experiments meet technology. The material turns digital, the familiar takes a new form, and imagination becomes the starting point for new worlds.</span></p>
+    <div class="cat-line">AI · ART · 3D</div>
+    <div class="btns" style="justify-content:center;"><a class="btn ghost" href="#work">Explore the work →</a></div>
+  </div>
+</div>
+
+<!-- AI -->
+<section id="ai" class="service">
   <div class="wrap">
-    <svg class="hero-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="13" stroke-width="1"/>
-      <circle cx="20" cy="20" r="7.5" stroke-width="1"/>
-      <path d="M20 3v4M20 33v4" stroke-width="1"/>
-      <path d="M14 20c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke-width="1" stroke-linecap="round"/>
-    </svg>
-    <h1>Візуальні світи — <br>від пензля до нейромережі</h1>
-    <p class="lead">AI-генерації фото та відео, живопис власними руками та 3D-візуалізація інтер'єрів в одному портфоліо.</p>
-    <div class="hero-roles">
-      <span>AI Content Creator</span>
-      <span class="sep"></span>
-      <span>Художниця</span>
-      <span class="sep"></span>
-      <span>3D-візуалізатор</span>
+    <div>
+      <div class="eyebrow-line"><span class="num">AI</span><span class="rule"></span></div>
+      <h2>AI — новий інструментарій для образу</h2>
+      <p class="lede">AI для мене — не заміна творчості, а інструмент її розширення. Я працюю з генеративними моделями, промптами, зображеннями, відео та цифровими персонажами, досліджуючи, як керувати результатом і перетворювати ідею на конкретний візуальний образ.<span class="en">For me, AI is not a replacement for creativity but a tool to extend it. I work with generative models, prompts, images, video and digital characters, exploring how to steer the result and turn an idea into a concrete visual image.</span></p>
+      <div class="tags"><span class="tag">PROMPT ENGINEERING</span><span class="tag">AI IMAGE</span><span class="tag">AI VIDEO</span><span class="tag">GENERATIVE ART</span></div>
+      <div class="btns"><a class="btn" href="#contact">Замовити AI-візуал →<span class="en">Order AI visuals</span></a></div>
+    </div>
+    <div>
+      <div class="offer-title">ЩО Я МОЖУ СТВОРИТИ ДЛЯ ВАС<span class="en">WHAT I CAN CREATE FOR YOU</span></div>
+      <ul class="offers">
+        <li><b>AI-відео <span class="en" style="display:inline;font-weight:400;">· AI video</span></b><span>Від ідеї до готового ролика.<span class="en">From idea to finished clip.</span></span></li>
+        <li><b>AI-фотосесія <span class="en" style="display:inline;font-weight:400;">· AI photoshoot</span></b><span>Образи й портрети, яких не існує в реальності.<span class="en">Looks and portraits that don't exist in reality.</span></span></li>
+        <li><b>Цифровий персонаж <span class="en" style="display:inline;font-weight:400;">· Digital character</span></b><span>Один образ, що зберігається в серії кадрів і сцен.<span class="en">One image kept consistent across a series of frames and scenes.</span></span></li>
+        <li><b>Візуали для контенту <span class="en" style="display:inline;font-weight:400;">· Content visuals</span></b><span>Обкладинки, добірки, серії для соцмереж.<span class="en">Covers, collections and series for social media.</span></span></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section>
+<!-- ART -->
+<section id="art" class="service">
   <div class="wrap">
-    <div class="section-head">
+    <div>
+      <div class="eyebrow-line"><span class="num">ART</span><span class="rule"></span></div>
+      <h2>ART — форма, матеріал, відчуття</h2>
+      <p class="lede">До цифрового я приходжу через матеріальне. Живопис, колір, фактура та ручна робота залишаються важливою частиною мого бачення. ART у NATAIRA — це простір для авторських робіт, експериментів і пошуку власної мови образу.<span class="en">I come to the digital through the material. Painting, colour, texture and handmade work remain an important part of my vision. ART at NATAIRA is a space for original works, experiments and the search for my own visual language.</span></p>
+      <div class="tags"><span class="tag">PAINTING</span><span class="tag">COLOR</span><span class="tag">TEXTURE</span><span class="tag">EXPERIMENT</span></div>
+      <div class="btns"><a class="btn" href="#work" data-jump="art">Обрати роботу →<span class="en">Choose a work</span></a><a class="btn ghost" href="#contact">Замовити картину →<span class="en">Commission a painting</span></a></div>
+    </div>
+    <div>
+      <div class="offer-title">ДВА СПОСОБИ ОТРИМАТИ КАРТИНУ<span class="en">TWO WAYS TO GET A PAINTING</span></div>
+      <ul class="offers">
+        <li><b>Готові роботи <span class="en" style="display:inline;font-weight:400;">· Ready-made works</span></b><span>Оригінали, які вже чекають на свій дім.<span class="en">Originals waiting for a home.</span></span></li>
+        <li><b>Робота на замовлення <span class="en" style="display:inline;font-weight:400;">· Commissioned work</span></b><span>Особиста картина за вашою історією, настроєм чи образом.<span class="en">A personal painting based on your story, mood or image.</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3D -->
+<section id="3d" class="service">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow-line"><span class="num">3D</span><span class="rule"></span></div>
+      <h2>3D — створювати простір з нуля</h2>
+      <p class="lede">Форма, світло, матеріали та композиція дозволяють побачити простір ще до того, як він стає реальністю. 3D-візуалізація для мене — це спосіб працювати з атмосферою, масштабом і образом.<span class="en">Form, light, materials and composition let you see a space before it becomes real. For me, 3D visualisation is a way of working with atmosphere, scale and image.</span></p>
+      <div class="tags"><span class="tag">3DS MAX</span><span class="tag">CORONA RENDERER</span><span class="tag">VISUALIZATION</span></div>
+      <div class="btns"><a class="btn" href="#contact">Замовити візуалізацію →<span class="en">Order a visualisation</span></a></div>
+    </div>
+    <div>
+      <div class="offer-title">ЩО Я МОЖУ ЗРОБИТИ<span class="en">WHAT I CAN DO</span></div>
+      <ul class="offers">
+        <li><b>3D-візуалізація інтер'єру <span class="en" style="display:inline;font-weight:400;">· Interior 3D visualisation</span></b><span>Ви бачите свій простір до початку ремонту й можете змінити його без витрат.<span class="en">You see your space before renovation begins and can change it at no cost.</span></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="work-head">
       <div>
-        <div class="eyebrow">Напрямки роботи</div>
-        <h2>Три мови одного бачення</h2>
+        <div class="eyebrow-line"><span class="num">WORK</span><span class="rule"></span></div>
+        <h2>Selected Work</h2>
+        <p class="lede">Добірка робіт, експериментів та візуальних досліджень.<span class="en">A selection of works, experiments and visual studies.</span></p>
       </div>
-      <p class="note">Кожен напрямок — окрема техніка, але всі вони про одне: перетворення ідеї на образ.</p>
+      <div class="filters" role="group" aria-label="Фільтр робіт">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="art">ART</button>
+        <button class="filter-btn" data-filter="3d">3D</button>
+      </div>
     </div>
-    <div class="grid-3">
-      <a href="ai-generations.html" class="card">
-        <span class="num">01</span>
-        <h3>AI-генерації</h3>
-        <p>Фото та відео, створені за допомогою нейромереж — від концепції до фінального кадру.</p>
-      </a>
-      <a href="art.html" class="card">
-        <span class="num">02</span>
-        <h3>Малюнки</h3>
-        <p>Живопис власними руками — там, де лінія і колір народжуються без алгоритмів.</p>
-      </a>
-      <a href="3d-visualization.html" class="card">
-        <span class="num">03</span>
-        <h3>3D-візуалізація</h3>
-        <p>Інтер'єри та простори, візуалізовані з увагою до світла, матеріалу й атмосфери.</p>
-      </a>
+    <div class="grid" id="grid">
+      <figure class="piece" data-cat="art"><div class="img"><img src="img/art-1.jpg" alt="Прабабин оберіг" loading="lazy"></div><figcaption><b>Прабабин оберіг</b>ґрунтоване ДВП, акрил, туш<span class="en">Great-grandmother's amulet — primed hardboard, acrylic, ink</span></figcaption></figure>
+      <figure class="piece" data-cat="art"><div class="img"><img src="img/art-2.jpg" alt="Сонце вночі" loading="lazy"></div><figcaption><b>Сонце вночі</b>ґрунтоване ДВП, олія<span class="en">Sun at night — primed hardboard, oil</span></figcaption></figure>
+      <figure class="piece" data-cat="art"><div class="img"><img src="img/art-3.jpg" alt="Чекав удома" loading="lazy"></div><figcaption><b>Чекав удома</b>ґрунтоване ДВП, олія<span class="en">Waiting at home — primed hardboard, oil</span></figcaption></figure>
+      <figure class="piece" data-cat="art"><div class="img"><img src="img/art-4.jpg" alt="Несли зірку" loading="lazy"></div><figcaption><b>Несли зірку</b>полотно, олія<span class="en">Carrying the star — canvas, oil</span></figcaption></figure>
+      <figure class="piece" data-cat="art"><div class="img"><img src="img/art-5.jpg" alt="Те саме літо" loading="lazy"></div><figcaption><b>Те саме літо</b>полотно, олія<span class="en">That same summer — canvas, oil</span></figcaption></figure>
+      <p class="empty-note" id="empty" hidden>Тут скоро з'являться роботи.<span class="en">Works coming soon.</span></p>
     </div>
   </div>
 </section>
 
-<section class="tight" style="border-top:1px solid var(--line);">
+<!-- EXPERIMENTS -->
+<section id="experiments" class="experiments">
   <div class="wrap">
-    <div class="about-block">
-      <div class="portrait">
-        <img src="assets/img/hero-bg.png" alt="NATAIRA — атмосфера роботи">
-      </div>
-      <div>
-        <div class="eyebrow">Про мене</div>
-        <h2>Мистецтво. Уява. Технології.</h2>
-        <p>NATAIRA — простір, де мистецтво зустрічається з технологіями, а уява стає рушієм нових форм.</p>
-        <p>Тут матеріальне переходить у цифрове, знайоме набуває нового звучання, а ідеї перетворюються на візуальні світи.</p>
-        <div class="cta-row" style="text-align:left; margin-top: 32px;">
-          <a href="about.html" class="btn">Дізнатися більше</a>
-        </div>
-      </div>
-    </div>
+    <div class="eyebrow-line"><span class="rule"></span><span class="num">EXPERIMENTS</span><span class="rule"></span></div>
+    <h2>Experiments</h2>
+    <p class="lede">Не все має одразу ставати готовим проєктом. Експерименти — це спосіб перевіряти ідеї, поєднувати різні інструменти та знаходити несподівані рішення. Тут можна побачити процес пошуку, тести, візуальні дослідження та роботи, які існують просто тому, що їх було цікаво створити.<span class="en">Not everything has to become a finished project right away. Experiments are a way to test ideas, combine different tools and find unexpected solutions. Here you can see the process of searching, tests, visual studies and works that exist simply because they were interesting to make.</span></p>
   </div>
 </section>
 
-<section class="tight" style="border-top:1px solid var(--line);">
-  <div class="wrap" style="text-align:center;">
-    <div class="eyebrow">Контакти</div>
-    <h2 style="margin-top:16px; font-size: clamp(26px,3.2vw,36px);">Маєте ідею? Обговорімо її</h2>
-    <div class="cta-row">
-      <a href="contacts.html" class="btn solid">Написати мені</a>
-    </div>
-  </div>
-</section>
-
-<footer class="site-footer">
+<!-- PROCESS -->
+<section id="process" class="process">
   <div class="wrap">
-    <div class="footer-top">
-      <a href="index.html" class="logo">
-        <svg class="logo-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="width:26px;height:26px;">
-          <circle cx="20" cy="20" r="13" stroke-width="1"/>
-          <circle cx="20" cy="20" r="7.5" stroke-width="1"/>
-        </svg>
-        <span class="logo-text" style="font-size:17px;">NATAIRA</span>
-      </a>
-      <nav class="footer-nav">
-        <a href="ai-generations.html">AI-генерації</a>
-        <a href="art.html">Малюнки</a>
-        <a href="3d-visualization.html">3D-візуалізація</a>
-        <a href="about.html">Про мене</a>
-        <a href="contacts.html">Контакти</a>
-      </nav>
-      <div class="footer-social">
-        <a href="#">Instagram</a>
-        <a href="#">Behance</a>
-      </div>
+    <div class="eyebrow-line"><span class="num">PROCESS</span><span class="rule"></span></div>
+    <h2>From idea to image</h2>
+    <p class="lede">Кожен проєкт починається з ідеї.<span class="en">Every project begins with an idea.</span></p>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>IDEA</h3><p>Задум, настрій, образ або задача.<span class="en">A concept, mood, image or task.</span></p></div>
+      <div class="step"><div class="n">02</div><h3>EXPLORE</h3><p>Пошук форми, референсів, матеріалів і напрямку.<span class="en">Searching for form, references, materials and direction.</span></p></div>
+      <div class="step"><div class="n">03</div><h3>CREATE</h3><p>AI, ART, 3D та цифрові інструменти стають частиною процесу.<span class="en">AI, ART, 3D and digital tools become part of the process.</span></p></div>
+      <div class="step"><div class="n">04</div><h3>REFINE</h3><p>Відбір, корекція, деталізація та робота з результатом.<span class="en">Selection, correction, detailing and working with the result.</span></p></div>
+      <div class="step"><div class="n">05</div><h3>FINAL</h3><p>Готовий візуальний образ.<span class="en">A finished visual image.</span></p></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 NATAIRA. Всі права захищені.</span>
-      <span>Ancient roots × Artificial intelligence</span>
-    </div>
+  </div>
+</section>
+
+<!-- AI x ART x 3D -->
+<div class="accent">
+  <div class="wrap">
+    <h2>Where disciplines meet</h2>
+    <p>AI може створити образ.<br>ART додає йому відчуття.<br>3D формує простір.<br>А поєднання дає можливість створювати те, що складно визначити одним жанром.<span class="en">AI can create an image. ART gives it feeling. 3D shapes the space. And the combination makes it possible to create what is hard to define by a single genre.</span></p>
+    <div class="stamp">AI × ART × 3D</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="eyebrow-line"><span class="num">ABOUT</span><span class="rule"></span></div>
+    <h2>About the creator</h2>
+    <p>Я працюю на перетині творчості та технологій, поєднуючи AI, цифрові інструменти, 3D та традиційне мистецтво.<span class="en">I work at the intersection of creativity and technology, combining AI, digital tools, 3D and traditional art.</span></p>
+    <p>Мені цікаві не просто нові інструменти, а те, що з їхньою допомогою можна створити.<span class="en">I'm interested not just in new tools, but in what can be created with them.</span></p>
+    <p>NATAIRA — простір, у якому я збираю ці напрямки в одну візуальну систему.<span class="en">NATAIRA is the space where I bring these directions together into one visual system.</span></p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow-line"><span class="rule"></span><span class="num">CONTACT</span><span class="rule"></span></div>
+    <h2>Let's create something new.</h2>
+    <p class="lede">Є ідея, проєкт або образ, який хочеться втілити? Напишіть, що вам потрібно: AI-візуал, картина чи візуалізація інтер'єру.<span class="en">Got an idea, a project or an image you want to bring to life? Tell me what you need: an AI visual, a painting or an interior visualisation.</span></p>
+    <div class="btns"><a class="btn" href="mailto:hello@nataira.art">Let's talk →</a></div>
+    <div class="cat-line">AI · ART · 3D</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img class="mark blend" src="img/logo-mark.jpg" alt="">
+    <img class="word blend" src="img/logo-word.jpg" alt="NATAIRA">
+    <div class="cat-line">AI · ART · 3D</div>
+    <div class="slogan">Art · Imagination · Technology</div>
+    <div class="copy">© NATAIRA</div>
   </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script>
+  var toggle=document.querySelector('.nav-toggle'), menu=document.getElementById('menu');
+  toggle.addEventListener('click',function(){
+    var open=menu.dataset.open==='1'; menu.dataset.open=open?'0':'1';
+    menu.style.cssText=open?'':'display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#161307;padding:20px 32px;gap:18px;border-bottom:1px solid #3a3520;';
+  });
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.style.cssText='';menu.dataset.open='0';});});
+
+  var btns=document.querySelectorAll('.filter-btn'), pieces=document.querySelectorAll('.piece'), empty=document.getElementById('empty');
+  function setFilter(f){
+    btns.forEach(function(b){b.classList.toggle('active',b.dataset.filter===f);});
+    var n=0; pieces.forEach(function(p){var show=(f==='all'||p.dataset.cat===f); p.style.display=show?'':'none'; if(show)n++;});
+    empty.hidden=n>0;
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){setFilter(b.dataset.filter);});});
+  document.querySelectorAll('[data-jump]').forEach(function(a){a.addEventListener('click',function(){setFilter(a.dataset.jump);});});
+</script>
 </body>
 </html>
