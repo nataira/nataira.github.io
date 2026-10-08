@@ -1,870 +1,406 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NATAIRA | AI · ART · VISUALS · 3D</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-dark: #23201b;
-            --bg-light: #2d2923;
-            --text-main: #f0e8dd;
-            --text-muted: #bdae99;
-            --accent: #d48b5e;
-            --border-color: rgba(212, 139, 94, 0.35);
-            
-            --font-heading: 'Cinzel', serif;
-            --font-text: 'Montserrat', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NATAIRA — Мистецтво. Уява. Технології.</title>
+<meta name="description" content="NATAIRA — авторський візуальний простір на перетині AI, ART, VISUALS та 3D.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#0f0d06; --bg-1:#161307; --bg-2:#1c1810; --line:#3a3520;
+    --sage:#6d6f52; --sage-dim:#4a4c37; --clay:#9c5636; --clay-bright:#b5754f;
+    --tan:#a9825e; --cream:#efe9db; --cream-dim:#b9b19c; --muted:#7d7863;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg-0); color:var(--cream); font-family:'Manrope',sans-serif; font-weight:400; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  a{color:inherit; text-decoration:none;}
+  img,video{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--clay-bright); outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:.001ms !important; transition-duration:.001ms !important; scroll-behavior:auto !important;} }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  header{position:sticky; top:0; z-index:50; background:rgba(15,13,6,.82); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:20px 32px; max-width:1180px; margin:0 auto;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand img{height:32px; width:32px;}
+  .brand .word{font-weight:600; font-size:18px; letter-spacing:.3em; color:var(--cream);}
+  nav.links{display:flex; gap:34px;}
+  nav.links a{font-size:13px; font-weight:500; letter-spacing:.06em; color:var(--cream-dim); transition:color .25s ease;}
+  nav.links a:hover{color:var(--clay-bright);}
+  .nav-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .nav-toggle span{width:22px; height:1.5px; background:var(--cream);}
 
-        html {
-            scroll-behavior: smooth;
-        }
+  .hero{position:relative; min-height:94vh; display:flex; align-items:center; justify-content:center; text-align:center; overflow:hidden;
+    background:linear-gradient(0deg, rgba(15,13,6,.9), rgba(15,13,6,.2) 45%), linear-gradient(90deg, rgba(15,13,6,.5), rgba(15,13,6,.05) 30%, rgba(15,13,6,.05) 70%, rgba(15,13,6,.55)), url('images/4_1.jpg') center/cover no-repeat, var(--bg-0);}
+  .hero-inner{position:relative; z-index:2; padding:0 24px; max-width:760px;}
+  .hero-mark{width:88px; height:88px; margin:0 auto 30px; opacity:.95;}
+  .hero h1{font-weight:600; font-size:clamp(32px,5.4vw,54px); letter-spacing:.01em; margin:0 0 26px;}
+  .hero p{font-size:16px; color:var(--cream-dim); max-width:52ch; margin:0 auto 34px;}
+  .cat-line{font-size:13px; letter-spacing:.2em; color:var(--tan);}
+  .hero .cat-line{margin-bottom:10px;}
+  .hero-scroll{position:absolute; bottom:34px; left:50%; transform:translateX(-50%); width:1px; height:44px; background:linear-gradient(var(--clay-bright), transparent);}
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: var(--font-text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            text-align: center;
-        }
+  section{padding:120px 0;}
+  .section-head{max-width:640px;}
+  .eyebrow-line{display:flex; align-items:center; gap:14px; margin-bottom:18px;}
+  .eyebrow-line .num{font-size:12.5px; color:var(--clay-bright); letter-spacing:.16em;}
+  .eyebrow-line .rule{flex:1; max-width:52px; height:1px; background:var(--line);}
+  h2{font-weight:600; font-size:clamp(26px,3.4vw,38px); margin:0 0 18px;}
+  .lede{color:var(--cream-dim); font-size:16px; max-width:56ch; margin:0;}
+  .tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+  .tag{font-size:12px; letter-spacing:.05em; color:var(--tan); border:1px solid var(--sage-dim); border-radius:2px; padding:7px 13px;}
+  .link-arrow{display:inline-flex; align-items:center; gap:8px; margin-top:32px; font-size:14px; font-weight:500; border-bottom:1px solid var(--clay-bright); padding-bottom:4px; transition:opacity .25s ease;}
+  .link-arrow:hover{opacity:.7;}
 
-        h1, h2, h3, .nav-links a {
-            font-family: var(--font-heading);
-            font-weight: 400;
-        }
+  .discipline{border-top:1px solid var(--line);}
+  .discipline .wrap{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; padding-top:110px; padding-bottom:110px;}
+  .discipline .figure{aspect-ratio:4/5; border:1px solid var(--line); background-size:cover; background-position:center;}
+  .discipline.art .figure{background-image:linear-gradient(160deg, rgba(15,13,6,.05), rgba(15,13,6,.5)), url('images/3_1.jpg');}
+  .discipline.visuals .figure{background-image:linear-gradient(160deg, rgba(15,13,6,.05), rgba(15,13,6,.5)), url('images/4_1.jpg');}
+  .discipline.art .wrap{direction:rtl;}
+  .discipline.art .wrap > *{direction:ltr;}
+  .discipline .sub{font-size:13px; letter-spacing:.1em; color:var(--muted); margin-bottom:14px;}
 
-        /* ХЕДЕР ТА НАВІГАЦІЯ */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 10px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(35, 32, 27, 0.92);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
+  /* AI: text + video gallery */
+  .discipline.ai .wrap{display:block;}
+  .ai-top{display:flex; justify-content:space-between; gap:56px; flex-wrap:wrap; align-items:flex-end; margin-bottom:56px;}
+  .ai-top .txt{max-width:620px;}
+  .video-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .video-card{border:1px solid var(--line); background:var(--bg-2); overflow:hidden; transition:border-color .3s ease;}
+  .video-card:hover{border-color:var(--clay);}
+  .video-frame{position:relative; aspect-ratio:9/16; background:linear-gradient(160deg, #1c1810, #0f0d06); display:flex; align-items:center; justify-content:center;}
+  .video-frame video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; background:transparent;}
+  .video-frame .empty{font-size:12.5px; color:var(--muted); letter-spacing:.05em; text-align:center; padding:0 20px;}
+  .video-card .cap{padding:14px 18px; font-size:12px; letter-spacing:.08em; color:var(--cream-dim); border-top:1px solid var(--line);}
+  .video-wide{margin-top:24px; border:1px solid var(--line); background:var(--bg-2);}
+  .video-wide .video-frame{aspect-ratio:16/9;}
 
-        .header-logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
+  .work{background:var(--bg-1); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .work-head{display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; margin-bottom:48px;}
+  .filters{display:flex; gap:10px; flex-wrap:wrap;}
+  .filter-btn{font-family:inherit; font-size:12.5px; letter-spacing:.06em; padding:9px 18px; border-radius:999px; border:1px solid var(--sage-dim); color:var(--cream-dim); background:transparent; cursor:pointer; transition:all .25s ease;}
+  .filter-btn.active, .filter-btn:hover{border-color:var(--clay-bright); color:var(--cream); background:rgba(181,117,79,.12);}
+  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .work-card{aspect-ratio:3/4; border:1px solid var(--line); background-color:var(--bg-2); display:flex; align-items:center; justify-content:center; padding:18px; background-size:cover; background-position:center;}
+  .work-card span{font-size:12.5px; color:var(--cream-dim); letter-spacing:.04em; background:rgba(15,13,6,.55); padding:8px 14px; border-radius:2px;}
+  .work-card.wide{grid-column:span 2; aspect-ratio:auto;}
+  .work-card.ph1{background-image:linear-gradient(rgba(15,13,6,.35),rgba(15,13,6,.55)), url('images/1_3.jpg');}
+  .work-card.ph2{background-image:linear-gradient(rgba(15,13,6,.35),rgba(15,13,6,.55)), url('images/3_1.jpg');}
+  .work-card.ph3{background-image:linear-gradient(rgba(15,13,6,.35),rgba(15,13,6,.55)), url('images/4_1.jpg');}
+  .work-actions{text-align:center; margin-top:28px;}
 
-        .header-logo img {
-            height: 70px;
-            width: auto;
-            filter: drop-shadow(0 0 10px rgba(212, 139, 94, 0.5));
-            transition: transform 0.3s ease;
-        }
+  .experiments .wrap{max-width:720px; text-align:center;}
+  .experiments .eyebrow-line{justify-content:center;}
+  .experiments .lede{margin:0 auto;}
 
-        .header-logo:hover img {
-            transform: scale(1.05);
-        }
+  .process{background:var(--bg-1); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .steps{display:grid; grid-template-columns:repeat(5,1fr); margin-top:56px;}
+  .step{border-left:1px solid var(--line); padding:0 22px;}
+  .step:first-child{border-left:none; padding-left:0;}
+  .step .n{font-size:12px; color:var(--clay-bright); letter-spacing:.1em; margin-bottom:14px;}
+  .step h3{font-size:15px; font-weight:600; letter-spacing:.06em; margin:0 0 10px;}
+  .step p{font-size:13.5px; color:var(--cream-dim); margin:0;}
 
-        .nav-links {
-            display: flex;
-            gap: 22px;
-            list-style: none;
-            align-items: center;
-        }
+  .split{display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--line);}
+  .split .side{padding:110px 56px;}
+  .split .side.img{background:url('images/3_1.jpg') center/cover no-repeat; min-height:420px;}
 
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 1.2px;
-            transition: color 0.3s;
-            text-transform: uppercase;
-        }
+  .accent{padding:130px 0; text-align:center; background:linear-gradient(180deg, rgba(15,13,6,.75), rgba(15,13,6,.92)), url('images/1_3.jpg') center/cover no-repeat; border-bottom:1px solid var(--line);}
+  .accent .wrap{max-width:680px;}
+  .accent p{color:var(--cream-dim); font-size:16px; margin:22px 0 36px;}
+  .accent .stamp{font-size:15px; letter-spacing:.28em; color:var(--clay-bright); font-weight:600;}
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
+  .about .wrap{display:grid; grid-template-columns:.9fr 1.1fr; gap:64px; align-items:center;}
+  .about .portrait{aspect-ratio:1/1; border:1px solid var(--line); position:relative; background:url('images/4_1.jpg') center/cover no-repeat;}
+  .about .portrait::after{content:""; position:absolute; inset:14px; border:1px solid var(--clay-bright); opacity:.5;}
+  .about p{color:var(--cream-dim); font-size:16px; max-width:54ch; margin:0 0 16px;}
 
-        .content-block {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
+  .contact{background:var(--bg-1); border-top:1px solid var(--line);}
+  .contact .wrap{text-align:center; max-width:600px;}
+  .contact .eyebrow-line{justify-content:center;}
+  .contact .lede{margin:0 auto;}
+  .contact-actions{display:flex; justify-content:center; margin-top:36px;}
+  .btn{display:inline-flex; align-items:center; padding:15px 32px; border-radius:999px; font-size:14px; font-weight:500; background:var(--clay); color:var(--cream); transition:background .25s ease;}
+  .btn:hover{background:var(--clay-bright);}
+  .contact .cat-line{margin-top:44px;}
 
-        .btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 14px 36px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 1rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            background: rgba(35, 32, 27, 0.6);
-            backdrop-filter: blur(4px);
-        }
+  footer{padding:44px 0; border-top:1px solid var(--line);}
+  footer .wrap{display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;}
+  footer .brand{gap:8px;}
+  footer .brand img{height:20px; width:20px; opacity:.85;}
+  footer .brand .word{font-size:13px; letter-spacing:.26em;}
+  footer .cat-line{font-size:11.5px; color:var(--muted);}
+  footer .slogan{font-size:12px; color:var(--cream-dim);}
+  footer .copy{font-size:12px; color:var(--muted);}
 
-        .btn:hover {
-            background-color: var(--accent);
-            color: var(--bg-dark);
-            box-shadow: 0 0 15px rgba(212, 139, 94, 0.4);
-        }
-
-        /* СЕКЦІЇ ЗІ ЯСКРАВИМИ ФОНАМИ */
-        section {
-            padding: 130px 8% 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        /* 1. Секція HOME — фон 1.jpg */
-        #home {
-            min-height: 100vh;
-            background-image: url('1.jpg');
-        }
-
-        #home::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(25, 22, 18, 0.45);
-            z-index: 1;
-        }
-
-        #home > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-brand-logo {
-            max-width: 300px;
-            width: 75%;
-            height: auto;
-            margin: 0 auto 20px auto;
-            display: block;
-            filter: drop-shadow(0 0 20px rgba(212, 139, 94, 0.6));
-        }
-
-        #home h1 {
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-            line-height: 1.25;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-        }
-
-        #home .about-intro {
-            font-size: 1.35rem;
-            font-weight: 300;
-            margin-bottom: 30px;
-            color: var(--text-main);
-            max-width: 900px;
-            line-height: 1.8;
-            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
-        }
-
-        #home .tag-line {
-            font-family: var(--font-heading);
-            color: var(--accent);
-            letter-spacing: 4px;
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
-        }
-
-        /* 2. Секція PORTFOLIO — фон 2.jpg */
-        #portfolio {
-            background-image: url('2.jpg');
-            position: relative;
-        }
-
-        #portfolio::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(25, 22, 18, 0.5);
-            z-index: 1;
-        }
-
-        #portfolio > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* ГАЛЕРЕЯ ТА ІНШІ БЛОКИ */
-        h2 {
-            font-size: 2.6rem;
-            color: var(--accent);
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-        }
-
-        .filters {
-            display: flex;
-            gap: 18px;
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-            background: rgba(35, 32, 27, 0.5);
-            backdrop-filter: blur(6px);
-            padding-top: 10px;
-            border-radius: 8px;
-        }
-        
-        .filter-btn {
-            cursor: pointer;
-            font-family: var(--font-heading);
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            transition: color 0.3s;
-            padding: 4px 10px;
-            font-size: 1rem;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
-        }
-
-        .category-info-box {
-            background: rgba(35, 31, 26, 0.75);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 25px 30px;
-            margin-bottom: 35px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .category-info-box h3 {
-            font-family: var(--font-heading);
-            color: var(--accent);
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            letter-spacing: 1.5px;
-        }
-
-        .category-info-box p {
-            font-size: 1.1rem;
-            color: var(--text-main);
-            max-width: 850px;
-            margin: 0 auto;
-            line-height: 1.75;
-            font-weight: 300;
-        }
-
-        /* СІТКА ГАЛЕРЕЇ */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
-            width: 100%;
-            margin-bottom: 40px;
-        }
-
-        .gallery-item {
-            background: rgba(45, 41, 35, 0.85);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            text-align: left;
-            backdrop-filter: blur(6px);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 25px rgba(212, 139, 94, 0.3);
-        }
-
-        .gallery-img-wrap {
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            overflow: hidden;
-            position: relative;
-            background-color: #1a1714;
-        }
-
-        .gallery-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            filter: saturate(85%) brightness(98%) sepia(10%);
-            transition: filter 0.5s ease, transform 0.5s ease;
-        }
-
-        .gallery-item:hover .gallery-img-wrap img {
-            filter: saturate(100%) brightness(100%) sepia(0%);
-            transform: scale(1.06);
-        }
-
-        .card-body {
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            background: rgba(35, 31, 26, 0.7);
-        }
-
-        .card-tag {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: var(--accent);
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-
-        .card-desc {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-            font-weight: 300;
-        }
-
-        .extra-section-box {
-            background: rgba(35, 31, 26, 0.8);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 50px 40px;
-            margin: 40px auto 0 auto;
-            width: 100%;
-            max-width: 1000px;
-            text-align: center;
-            backdrop-filter: blur(8px);
-        }
-
-        .extra-section-box h3 {
-            color: var(--accent);
-            font-size: 2rem;
-            margin-bottom: 25px;
-            letter-spacing: 2px;
-        }
-
-        .extra-section-box .disciplines-text {
-            font-size: 1.3rem;
-            line-height: 1.9;
-            font-weight: 300;
-            color: var(--text-main);
-            margin-bottom: 25px;
-        }
-
-        /* 3. Секція ABOUT — фон 3.jpg */
-        #about-section {
-            background-image: url('3.jpg');
-            position: relative;
-            width: 100%;
-            margin-top: 60px;
-            padding: 100px 8%;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        #about-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(25, 22, 18, 0.5);
-            z-index: 1;
-            border-radius: 12px;
-        }
-
-        #about-section > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        /* ФУТЕР */
-        footer {
-            width: 100%;
-            padding: 40px 10% 25px;
-            background-color: var(--bg-dark);
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-        }
-
-        .footer-logo-img {
-            height: 70px;
-            width: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px rgba(212, 139, 94, 0.4));
-        }
-
-        .footer-legal {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 15px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.5;
-            font-weight: 300;
-        }
-
-        .footer-credit {
-            font-size: 0.85rem;
-            color: var(--accent);
-            letter-spacing: 1.2px;
-            margin-top: 18px;
-            font-family: var(--font-heading);
-            text-transform: uppercase;
-        }
-
-        /* МОДАЛЬНЕ ВІКНО */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(18, 15, 12, 0.88);
-            backdrop-filter: blur(8px);
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal.show {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-container {
-            position: relative;
-            max-width: 850px;
-            width: 90%;
-            max-height: 88vh;
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid var(--accent);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            max-width: 100%;
-            max-height: 58vh;
-            border-radius: 6px;
-            object-fit: contain;
-        }
-
-        .modal-info {
-            margin-top: 15px;
-            text-align: center;
-            width: 100%;
-        }
-
-        .modal-tag {
-            font-size: 0.8rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 4px;
-        }
-
-        .modal-caption {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 12px; right: 15px;
-            width: 34px; height: 34px;
-            background: var(--accent);
-            color: var(--bg-dark);
-            border-radius: 50%;
-            font-size: 20px;
-            font-weight: bold;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            transition: transform 0.2s;
-        }
-
-        .modal-close:hover { transform: scale(1.1); }
-
-        @media (max-width: 850px) {
-            header { padding: 10px 20px; flex-direction: column; gap: 10px; }
-            .header-logo img { height: 55px; }
-            .nav-links { gap: 10px; flex-wrap: wrap; justify-content: center; }
-            .nav-links a { font-size: 0.78rem; }
-            #home h1 { font-size: 2.3rem; }
-            #home .about-intro { font-size: 1.1rem; }
-            h2 { font-size: 2rem; }
-            section { padding: 110px 5% 50px; background-attachment: scroll; }
-        }
-    </style>
+  @media (max-width:900px){
+    nav.links{display:none;}
+    .nav-toggle{display:flex;}
+    .discipline:not(.ai) .wrap, .split, .about .wrap{grid-template-columns:1fr;}
+    .discipline.art .wrap{direction:ltr;}
+    .grid-4{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:1fr 1fr; row-gap:36px;}
+    .step{border-left:none; padding-left:0;}
+    .split .side{padding:64px 28px;}
+    section{padding:80px 0;}
+    .discipline .wrap{padding-top:64px; padding-bottom:64px;}
+  }
+  @media (max-width:640px){
+    .video-grid{grid-template-columns:1fr; max-width:340px; margin:0 auto;}
+    .steps{grid-template-columns:1fr;}
+    .grid-4{grid-template-columns:1fr;}
+    .work-card.wide{grid-column:span 1;}
+  }
+</style>
 </head>
 <body>
 
-    <!-- НАВІГАЦІЯ -->
-    <header>
-        <a href="#home" class="header-logo">
-            <img src="logo.png" alt="NATAIRA Emblem & Logo">
-        </a>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#portfolio" data-nav-filter="ai">AI</a></li>
-                <li><a href="#portfolio" data-nav-filter="art">ART</a></li>
-                <li><a href="#portfolio" data-nav-filter="visuals">VISUALS</a></li>
-                <li><a href="#portfolio" data-nav-filter="3d">3D</a></li>
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#contact">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+  <div class="nav">
+    <a class="brand" href="#top"><img src="images/logo_mark.png" alt="Nataira"><span class="word">NATAIRA</span></a>
+    <nav class="links" id="menu">
+      <a href="#top">HOME</a>
+      <a href="#work">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#experiments">EXPERIMENTS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
 
-    <!-- HOME -->
-    <section id="home">
-        <div class="content-block">
-            <img src="logo.png" alt="NATAIRA Brand Logo" class="hero-brand-logo">
-            <h1>Мистецтво. Уява. Технології.</h1>
-            
-            <p class="about-intro">
-                NATAIRA — простір, де образи, ідеї та експерименти зустрічаються з технологіями. Тут матеріальне переходить у цифрове, знайоме набуває нової форми, а уява стає точкою відліку для нових світів.
-            </p>
+<!-- 01 HERO -->
+<div id="top" class="hero">
+  <div class="hero-inner">
+    <img class="hero-mark" src="images/logo_mark.png" alt="">
+    <h1>Мистецтво. Уява. Технології.</h1>
+    <p>NATAIRA — простір, де образи, ідеї та експерименти зустрічаються з технологіями. Тут матеріальне переходить у цифрове, знайоме набуває нової форми, а уява стає точкою відліку для нових світів.</p>
+    <div class="cat-line">AI · ART · VISUALS · 3D</div>
+    <a class="link-arrow" href="#work">Explore the work →</a>
+  </div>
+  <div class="hero-scroll"></div>
+</div>
 
-            <div class="tag-line">AI · ART · VISUALS · 3D</div>
-
-            <a href="#portfolio" class="btn" data-nav-filter="all">Explore &rarr;</a>
+<!-- 02 AI -->
+<section id="ai" class="discipline ai">
+  <div class="wrap">
+    <div class="ai-top">
+      <div class="txt">
+        <div class="eyebrow-line"><span class="num">AI</span><span class="rule"></span></div>
+        <h2>AI — новий інструментарій для образу</h2>
+        <p class="lede">AI для мене — не заміна творчості, а інструмент її розширення. Я працюю з генеративними моделями, промптами, AI-зображеннями, відео та цифровими персонажами, досліджуючи, як керувати результатом і перетворювати ідею на конкретний візуальний образ.</p>
+        <div class="tags">
+          <span class="tag">PROMPT ENGINEERING</span>
+          <span class="tag">AI IMAGE</span>
+          <span class="tag">AI VIDEO</span>
+          <span class="tag">GENERATIVE ART</span>
         </div>
-    </section>
-
-    <!-- PORTFOLIO -->
-    <section id="portfolio">
-        <div class="content-block" style="max-width: 1150px; width: 100%;">
-            <h2>Works</h2>
-            
-            <!-- Кнопки-фільтри -->
-            <div class="filters">
-                <span class="filter-btn active" data-filter="all">ALL WORKS</span>
-                <span class="filter-btn" data-filter="ai">AI</span>
-                <span class="filter-btn" data-filter="art">ART</span>
-                <span class="filter-btn" data-filter="visuals">VISUALS</span>
-                <span class="filter-btn" data-filter="3d">3D</span>
-            </div>
-
-            <div id="category-info" class="category-info-box">
-                <h3 id="category-title">ALL WORKS</h3>
-                <p id="category-desc">Повний простір робіт NATAIRA — від генеративного AI-мистецтва до авторських полотен та 3D-візуалізації.</p>
-            </div>
-            
-            <!-- СІТКА РОБІТ -->
-            <div class="gallery">
-
-                <!-- ART (5 робіт з вашими підписами) -->
-                <div class="gallery-item" data-category="art">
-                    <div class="gallery-img-wrap">
-                        <img src="" data-src="art-1.jpg" alt="Art Work 1" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">Art & Painting</span>
-                        <p class="card-desc" data-filename="art-1.jpg"></p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="art">
-                    <div class="gallery-img-wrap">
-                        <img src="" data-src="art-2.jpg" alt="Art Work 2" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">Art & Painting</span>
-                        <p class="card-desc" data-filename="art-2.jpg"></p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="art">
-                    <div class="gallery-img-wrap">
-                        <img src="" data-src="art-3.jpg" alt="Art Work 3" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">Art & Painting</span>
-                        <p class="card-desc" data-filename="art-3.jpg"></p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="art">
-                    <div class="gallery-img-wrap">
-                        <img src="" data-src="art-4.jpg" alt="Art Work 4" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">Art & Painting</span>
-                        <p class="card-desc" data-filename="art-4.jpg"></p>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="art">
-                    <div class="gallery-img-wrap">
-                        <img src="" data-src="art-5.jpg" alt="Art Work 5" loading="lazy">
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag">Art & Painting</span>
-                        <p class="card-desc" data-filename="art-5.jpg"></p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- WHERE DISCIPLINES MEET -->
-            <div class="extra-section-box">
-                <h3>Where disciplines meet</h3>
-                <div class="disciplines-text">
-                    AI може створити образ.<br>
-                    ART додає йому відчуття.<br>
-                    3D формує простір.<br><br>
-                    Їхнє поєднання відкриває можливість створювати те, що складно визначити одним жанром.
-                </div>
-                <div class="tag-line" style="margin-bottom: 0; color: var(--accent); font-family: var(--font-heading); letter-spacing: 3px;">AI × ART × 3D</div>
-            </div>
-
-            <!-- ABOUT БЛОК -->
-            <div id="about" style="width: 100%;">
-                <div id="about-section">
-                    <h2>About</h2>
-                    <p class="about-intro" style="margin: 20px auto 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--text-main); max-width: 850px; font-weight: 300;">
-                        Я працюю на перетині творчості та технологій, поєднуючи AI, цифрові інструменти, 3D та традиційне мистецтво. Мені цікаві не просто нові інструменти, а те, що з їхньою допомогою можна створити.
-                    </p>
-                </div>
-            </div>
-
-            <!-- CONTACT БЛОК -->
-            <div id="contact" style="margin-top: 80px; width: 100%;">
-                <h2>Let's create something new.</h2>
-                <p class="about-intro" style="margin: 15px auto 25px auto; font-size: 1.15rem; color: var(--text-muted); font-weight: 300;">
-                    Є ідея, проєкт або просто образ, який хочеться втілити?
-                </p>
-                <a href="mailto:contact@nataira.com" class="btn">Let's talk &rarr;</a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ФУТЕР -->
-    <footer>
-        <img src="logo.png" alt="NATAIRA" class="footer-logo-img">
-        <div style="font-family: var(--font-heading); color: var(--accent); letter-spacing: 3px; font-size: 0.9rem; margin-bottom: 6px;">
-            NATAIRA
-        </div>
-        <div style="font-size: 0.8rem; color: var(--text-muted); letter-spacing: 1.5px; margin-bottom: 10px;">
-            AI · ART · VISUALS · 3D
-        </div>
-        <div style="font-family: var(--font-heading); font-size: 0.85rem; color: var(--text-main); margin-bottom: 15px;">
-            Art · Imagination · Technology
-        </div>
-        
-        <p style="font-size: 0.85rem; color: var(--text-muted);">
-            © NATAIRA. All rights reserved.
-        </p>
-        <p class="footer-legal">
-            All content and visual materials are protected by applicable intellectual property laws. Unauthorized use, reproduction or distribution is prohibited.
-        </p>
-        <div class="footer-credit">
-            Website & design by NATAIRA
-        </div>
-    </footer>
-
-    <!-- МОДАЛЬНЕ ВІКНО -->
-    <div id="imageModal" class="modal">
-        <div class="modal-container">
-            <span class="modal-close" id="modalClose">&times;</span>
-            <img class="modal-content" id="modalImg" alt="Enlarged Work">
-            <div class="modal-info">
-                <div class="modal-tag" id="modalTag"></div>
-                <div class="modal-caption" id="modalCaption"></div>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <!-- СКРИПТИ -->
-    <script>
-        document.addEventListener("DOMContentLoaded", async () => {
-            const images = document.querySelectorAll('.gallery-img-wrap img');
-            images.forEach(img => {
-                const rawSrc = img.getAttribute('data-src');
-                if (rawSrc) {
-                    img.src = encodeURI(rawSrc);
-                }
-            });
+    <!-- Відео 9:16. Поклади файли у папку ai/ з цими іменами (або зміни src). -->
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-frame">
+          <span class="empty">Додайте відео<br>ai/ai-1.mp4</span>
+          <video controls playsinline preload="metadata" poster="images/1_3.jpg"><source src="ai/ai-1.mp4" type="video/mp4"></video>
+        </div>
+        <div class="cap">AI VIDEO · 01</div>
+      </div>
+      <div class="video-card">
+        <div class="video-frame">
+          <span class="empty">Додайте відео<br>ai/ai-2.mp4</span>
+          <video controls playsinline preload="metadata" poster="images/3_1.jpg"><source src="ai/ai-2.mp4" type="video/mp4"></video>
+        </div>
+        <div class="cap">AI VIDEO · 02</div>
+      </div>
+      <div class="video-card">
+        <div class="video-frame">
+          <span class="empty">Додайте відео<br>ai/ai-3.mp4</span>
+          <video controls playsinline preload="metadata" poster="images/4_1.jpg"><source src="ai/ai-3.mp4" type="video/mp4"></video>
+        </div>
+        <div class="cap">AI VIDEO · 03</div>
+      </div>
+    </div>
 
-            try {
-                const response = await fetch('captions.txt');
-                if (response.ok) {
-                    const text = await response.text();
-                    const lines = text.split('\n');
-                    const captionsMap = {};
+    <a class="link-arrow" href="#work">View AI work →</a>
+  </div>
+</section>
 
-                    lines.forEach(line => {
-                        const parts = line.split(/—|-/);
-                        if (parts.length >= 2) {
-                            const fileName = parts[0].trim();
-                            const captionText = parts.slice(1).join('—').trim();
-                            if (fileName && captionText) {
-                                captionsMap[fileName] = captionText;
-                            }
-                        }
-                    });
+<!-- 03 ART -->
+<section id="art" class="discipline art">
+  <div class="wrap">
+    <div class="figure"></div>
+    <div>
+      <div class="eyebrow-line"><span class="num">ART</span><span class="rule"></span></div>
+      <h2>ART — форма, матеріал, відчуття</h2>
+      <p class="lede">До цифрового я приходжу через матеріальне. Живопис, колір, фактура та ручна робота залишаються важливою частиною мого візуального мислення. ART у NATAIRA — це простір для авторських робіт, експериментів і пошуку власної мови образу.</p>
+      <div class="tags"><span class="tag">PAINTING</span><span class="tag">COLOR</span><span class="tag">TEXTURE</span><span class="tag">EXPERIMENT</span></div>
+      <a class="link-arrow" href="#work">View ART →</a>
+    </div>
+  </div>
+</section>
 
-                    document.querySelectorAll('.card-desc[data-filename]').forEach(descEl => {
-                        const fileName = descEl.getAttribute('data-filename');
-                        if (captionsMap[fileName]) {
-                            descEl.textContent = captionsMap[fileName];
-                        } else {
-                            descEl.textContent = '';
-                        }
-                    });
-                }
-            } catch (error) {
-                console.log("Файл captions.txt не знайдено або сталася помилка читання.");
-            }
-        });
+<!-- 04 VISUALS -->
+<section id="visuals" class="discipline visuals">
+  <div class="wrap">
+    <div class="figure"></div>
+    <div>
+      <div class="eyebrow-line"><span class="num">VISUALS</span><span class="rule"></span></div>
+      <h2>VISUALS</h2>
+      <div class="sub">Digital images · Visual concepts · AI content</div>
+      <p class="lede">Візуальні концепції, образи та цифрові рішення для контенту, проєктів і власних експериментів.</p>
+      <div class="tags"><span class="tag">CONCEPTS</span><span class="tag">DIGITAL VISUALS</span><span class="tag">AI CONTENT</span></div>
+      <a class="link-arrow" href="#work">View visuals →</a>
+    </div>
+  </div>
+</section>
 
-        const categoryData = {
-            'all': {
-                title: 'ALL WORKS',
-                desc: 'Повний простір робіт NATAIRA — від генеративного AI-мистецтва до авторських полотен та 3D-візуалізації.'
-            },
-            'ai': {
-                title: 'AI',
-                desc: 'AI — новий інструментарій для образу. AI для мене — не заміна творчості, а інструмент її розширення. Генеративні технології відкривають нові способи працювати з образом, атмосферою, персонажем і візуальною ідеєю.\n\nPROMPT ENGINEERING · AI IMAGE · AI VIDEO · GENERATIVE ART'
-            },
-            'art': {
-                title: 'ART',
-                desc: 'ART — форма, матеріал, відчуття. До цифрового я приходжу через матеріальне. Колір, фактура, форма та ручна робота залишаються важливою частиною мого візуального мислення. ART у NATAIRA — простір для авторських робіт і художніх експериментів.\n\nPAINTING · COLOR · TEXTURE · EXPERIMENT'
-            },
-            'visuals': {
-                title: 'VISUALS',
-                desc: 'VISUALS. Візуальні образи починаються з ідеї. Цифрові зображення, концепції та експерименти, створені для передачі настрою, історії або задуму.\n\nCONCEPTS · DIGITAL VISUALS · AI CONTENT'
-            },
-            '3d': {
-                title: '3D',
-                desc: '3D — створювати простір з нуля. Форма, світло, матеріали та композиція дозволяють створювати візуальний простір ще до того, як він стає реальністю. 3D-візуалізація — спосіб досліджувати простір, атмосферу, масштаб і матеріальність.\n\n3DS MAX · CORONA RENDERER · VISUALIZATION'
-            }
-        };
+<!-- 05 SELECTED WORK -->
+<section id="work" class="work">
+  <div class="wrap">
+    <div class="work-head">
+      <div class="section-head">
+        <div class="eyebrow-line"><span class="num">WORK</span><span class="rule"></span></div>
+        <h2>Selected Work</h2>
+        <p class="lede">Добірка робіт, експериментів та візуальних досліджень.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Фільтр робіт">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="art">ART</button>
+        <button class="filter-btn" data-filter="visuals">VISUALS</button>
+        <button class="filter-btn" data-filter="3d">3D</button>
+      </div>
+    </div>
+    <div class="grid-4">
+      <div class="work-card ph1" data-cat="ai"><span>Додайте роботу</span></div>
+      <div class="work-card ph2" data-cat="art"><span>Додайте роботу</span></div>
+      <div class="work-card ph3" data-cat="visuals"><span>Додайте роботу</span></div>
+      <div class="work-card ph2" data-cat="3d"><span>Додайте роботу</span></div>
+    </div>
+    <div class="work-actions"><a class="link-arrow" href="#work">View all work →</a></div>
+  </div>
+</section>
 
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const categoryTitle = document.getElementById('category-title');
-        const categoryDesc = document.getElementById('category-desc');
+<!-- 06 EXPERIMENTS -->
+<section id="experiments" class="experiments">
+  <div class="wrap">
+    <div class="eyebrow-line"><span class="rule"></span><span class="num">EXPERIMENTS</span><span class="rule"></span></div>
+    <h2>Experiments</h2>
+    <p class="lede">Не все має одразу ставати готовим проєктом. Експерименти — це спосіб перевіряти ідеї, поєднувати різні інструменти та знаходити несподівані рішення. Тут можна побачити процес пошуку, тести, візуальні дослідження та роботи, які існують просто тому, що їх було цікаво створити.</p>
+  </div>
+</section>
 
-        function applyFilter(filter) {
-            filterBtns.forEach(b => {
-                if (b.getAttribute('data-filter') === filter) {
-                    b.classList.add('active');
-                } else {
-                    b.classList.remove('active');
-                }
-            });
+<!-- 07 PROCESS -->
+<section id="process" class="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-line"><span class="num">PROCESS</span><span class="rule"></span></div>
+      <h2>From idea to image</h2>
+      <p class="lede">Кожен проєкт починається з ідеї.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>IDEA</h3><p>Задум, настрій, образ або задача.</p></div>
+      <div class="step"><div class="n">02</div><h3>EXPLORE</h3><p>Пошук форми, референсів, матеріалів і напрямку.</p></div>
+      <div class="step"><div class="n">03</div><h3>CREATE</h3><p>AI, ART, 3D та цифрові інструменти стають частиною процесу.</p></div>
+      <div class="step"><div class="n">04</div><h3>REFINE</h3><p>Відбір, корекція, деталізація та робота з результатом.</p></div>
+      <div class="step"><div class="n">05</div><h3>FINAL</h3><p>Готовий візуальний образ.</p></div>
+    </div>
+  </div>
+</section>
 
-            if (categoryData[filter]) {
-                categoryTitle.textContent = categoryData[filter].title;
-                categoryDesc.style.whiteSpace = "pre-line";
-                categoryDesc.textContent = categoryData[filter].desc;
-            }
+<!-- 08 3D -->
+<section id="3d" style="padding:0;">
+  <div class="split">
+    <div class="side">
+      <div class="eyebrow-line"><span class="num">3D</span><span class="rule"></span></div>
+      <h2>3D — створювати простір з нуля</h2>
+      <p class="lede">Форма, світло, матеріали та композиція дозволяють створювати візуальний простір ще до того, як він стає реальністю. 3D-візуалізація для мене — це не лише технічний інструмент, а ще один спосіб працювати з атмосферою, масштабом і образом.</p>
+      <div class="tags"><span class="tag">3DS MAX</span><span class="tag">CORONA RENDERER</span><span class="tag">VISUALIZATION</span></div>
+      <a class="link-arrow" href="#work">View 3D work →</a>
+    </div>
+    <div class="side img"></div>
+  </div>
+</section>
 
-            galleryItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                if (filter === 'all' || category === filter) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
+<!-- 09 AI × ART × 3D -->
+<div class="accent">
+  <div class="wrap">
+    <h2>Where disciplines meet</h2>
+    <p>AI може створити образ.<br>ART додає йому відчуття.<br>3D формує простір.<br>А поєднання дає можливість створювати те, що складно визначити одним жанром.</p>
+    <div class="stamp">AI × ART × 3D</div>
+  </div>
+</div>
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const filter = btn.getAttribute('data-filter');
-                applyFilter(filter);
-            });
-        });
+<!-- 10 ABOUT -->
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="portrait"></div>
+    <div>
+      <div class="eyebrow-line"><span class="num">ABOUT</span><span class="rule"></span></div>
+      <h2>About the creator</h2>
+      <p>Я працюю на перетині творчості та технологій, поєднуючи AI, цифрові інструменти, 3D та традиційне мистецтво.</p>
+      <p>Мені цікаві не просто нові інструменти, а те, що з їхньою допомогою можна створити.</p>
+      <p>NATAIRA — простір, у якому я збираю ці напрямки в одну візуальну систему.</p>
+    </div>
+  </div>
+</section>
 
-        document.querySelectorAll('[data-nav-filter]').forEach(navLink => {
-            navLink.addEventListener('click', () => {
-                const filter = navLink.getAttribute('data-nav-filter');
-                applyFilter(filter);
-            });
-        });
+<!-- 11 CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow-line"><span class="rule"></span><span class="num">CONTACT</span><span class="rule"></span></div>
+    <h2>Let's create something new.</h2>
+    <p class="lede">Є ідея, проєкт або просто образ, який хочеться втілити?</p>
+    <div class="contact-actions"><a class="btn" href="mailto:your@email.com">Let's talk →</a></div>
+    <div class="cat-line">AI · ART · VISUALS · 3D</div>
+  </div>
+</section>
 
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImg');
-        const modalTag = document.getElementById('modalTag');
-        const modalCaption = document.getElementById('modalCaption');
-        const modalClose = document.getElementById('modalClose');
+<!-- 12 FOOTER -->
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="images/logo_mark.png" alt=""><span class="word">NATAIRA</span></a>
+    <div class="cat-line">AI · ART · VISUALS · 3D</div>
+    <div class="slogan">Art · Imagination · Technology</div>
+    <div class="copy">© NATAIRA</div>
+  </div>
+</footer>
 
-        galleryItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const img = item.querySelector('img');
-                const tag = item.querySelector('.card-tag');
-                const desc = item.querySelector('.card-desc');
-                
-                modalImg.src = img.src;
-                modalImg.alt = img.alt;
-                modalTag.textContent = tag ? tag.textContent : '';
-                modalCaption.textContent = desc ? desc.textContent : '';
-                
-                modal.classList.add('show');
-                document.body.style.overflow = 'hidden';
-            });
-        });
+<script>
+  // mobile menu
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('menu');
+  toggle.addEventListener('click', () => {
+    const open = menu.dataset.open === '1';
+    menu.dataset.open = open ? '0' : '1';
+    menu.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#161307;padding:20px 32px;gap:18px;border-bottom:1px solid #3a3520;';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.style.cssText=''; menu.dataset.open='0'; }));
 
-        function closeModal() {
-            modal.classList.remove('show');
-            document.body.style.overflow = '';
-        }
+  // work filters
+  const btns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.work-card');
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    cards.forEach(c => { c.style.display = (b.dataset.filter === 'all' || c.dataset.cat === b.dataset.filter) ? '' : 'none'; });
+  }));
 
-        modalClose.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
-        });
-    </script>
+  // відео: якщо файл не завантажився — ховаємо порожній плеєр і лишаємо підпис-заглушку
+  document.querySelectorAll('.video-frame video').forEach(v => {
+    const src = v.querySelector('source');
+    src.addEventListener('error', () => { v.style.display = 'none'; });
+    // поки відео грає — одне за раз
+    v.addEventListener('play', () => {
+      document.querySelectorAll('.video-frame video').forEach(o => { if (o !== v) o.pause(); });
+    });
+  });
+</script>
 </body>
 </html>
